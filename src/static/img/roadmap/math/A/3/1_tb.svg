@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160">
+<rect width="240" height="160" fill="#ffffff"/><circle cx="60" cy="60" r="8" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><circle cx="78" cy="60" r="8" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><circle cx="110" cy="60" r="8" fill="#e74c3c" stroke="#333" stroke-width="1.5"/><circle cx="126" cy="60" r="8" fill="#e74c3c" stroke="#333" stroke-width="1.5"/><circle cx="142" cy="60" r="8" fill="#e74c3c" stroke="#333" stroke-width="1.5"/><circle cx="158" cy="60" r="8" fill="#e74c3c" stroke="#333" stroke-width="1.5"/><circle cx="174" cy="60" r="8" fill="#e74c3c" stroke="#333" stroke-width="1.5"/><circle cx="190" cy="60" r="8" fill="#e74c3c" stroke="#333" stroke-width="1.5"/><text x="120" y="110" text-anchor="middle" font-size="12" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">6 是 2 的 3 倍</text>
+</svg>

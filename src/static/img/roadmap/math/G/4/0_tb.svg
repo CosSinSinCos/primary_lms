@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160">
+<rect width="240" height="160" fill="#ffffff"/><circle cx="60" cy="60" r="8" fill="#e74c3c" stroke="#333" stroke-width="1.5"/><circle cx="90" cy="80" r="8" fill="#e74c3c" stroke="#333" stroke-width="1.5"/><circle cx="120" cy="50" r="8" fill="#e74c3c" stroke="#333" stroke-width="1.5"/><circle cx="150" cy="70" r="8" fill="#e74c3c" stroke="#333" stroke-width="1.5"/><line x1="40" y1="68" x2="180" y2="68" stroke="#e74c3c" stroke-width="1" stroke-dasharray="6 4"/><text x="120" y="110" text-anchor="middle" font-size="10" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">平均数=总数/份数</text>
+</svg>

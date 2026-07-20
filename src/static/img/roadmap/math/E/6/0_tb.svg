@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160">
+<rect width="240" height="160" fill="#ffffff"/><rect x="95" y="70" width="50" height="40" rx="2" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><circle cx="120" cy="70" r="14" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><text x="120" y="128" text-anchor="middle" font-size="9" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">利息=本金x利率x时间</text>
+</svg>

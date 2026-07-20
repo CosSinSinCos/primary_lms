@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}今日复习 · 小学自学系统{% endblock %}
+{% block content %}
+<div class="page-head">
+  <h1>今日复习清单</h1>
+  <span class="muted">{{ today }} · 共 {{ items|length }} 条</span>
+</div>
+
+{% for e in items %}
+<div class="review-item {% if e.stubborn %}stubborn{% endif %}">
+  <div class="ri-head">
+    <span class="ri-title">{{ e.knowledge_node }}</span>
+    {% if e.stubborn %}<span class="tag tag-red">顽固</span>{% endif %}
+  </div>
+  <div class="ri-meta">
+    <span>{{ '数学' if e.subject == 'math' else '语文' }} · {{ e.grade }}年级 · {{ e.knowledge_line }}</span>
+    <span>单元：{{ e.unit or '—' }}</span>
+    <span>来源：{{ e.source or '—' }}</span>
+    <span>错误类型：{{ e.error_type }}</span>
+    <span>已连续错 {{ e.consecutive_wrong }} 次</span>
+  </div>
+  <form class="ri-actions" method="post" action="{{ url_for('review_action', eid=e.id) }}">
+    <button type="submit" name="result" value="correct" class="btn btn-ok">答对 ✓</button>
+    <button type="submit" name="result" value="wrong" class="btn btn-err">答错 ✗</button>
+  </form>
+</div>
+{% else %}
+<div class="empty">今天没有需要复习的错题 🎉</div>
+{% endfor %}
+{% endblock %}

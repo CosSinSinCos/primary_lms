@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}知识点导图 · 小学自学系统{% endblock %}
+{% block content %}
+
+{# 完整导图数据，供前端查找节点 #}
+<script id="roadmap-data" type="application/json">{{ roadmap_data | tojson }}</script>
+
+<div class="page-head">
+  <h1>小学知识点导图</h1>
+  <div class="subject-tabs">
+    {% for code, info in subjects.items() %}
+    <a class="subject-tab {% if code == subject %}active{% endif %}"
+       href="{{ url_for('roadmap', subject=code) }}">{{ info.name }}</a>
+    {% endfor %}
+  </div>
+</div>
+<p class="muted">点击任意知识点，内容会在上方「黑板」上讲解；再点别的，黑板换一节课。📚</p>
+
+{# 顶部固定黑板 #}
+<section id="board" class="board-wrap" aria-live="polite">
+  <div class="blackboard">
+    <div id="board-empty" class="board-empty">
+      👆 点击下面的知识点，开始今天的课～
+    </div>
+    <div id="board-content" class="board-content" hidden>
+      <div class="board-lesson-tag">📚 上课啦</div>
+      <h2 id="board-title" class="board-title"></h2>
+      <div id="board-sections"></div>
+      <a id="board-errlink" class="board-errlink" href="#">查看这个知识点的错题 →</a>
+    </div>
+  </div>
+</section>
+
+{# 知识点导图网格 #}
+<div id="roadmap-root" class="roadmap" data-subject="{{ subject }}">
+  {% for line in lines %}
+  <section class="line-card" data-line="{{ line.code }}">
+    <header class="line-head">
+      <span class="line-code">{{ line.code }}</span>
+      <span class="line-name">{{ line.name }}</span>
+      {% set cnt = line_counts.get(line.code, 0) %}
+      {% if cnt %}
+      <span class="line-badge" title="错题集中该知识线的错题数">{{ cnt }} 道错题</span>
+      {% endif %}
+    </header>
+    <div class="grade-grid">
+      {% for g in ['1','2','3','4','5','6'] %}
+      {% set nodes = line.grades.get(g, []) %}
+      <div class="grade-col">
+        <div class="grade-label">{% if g == '1' %}一年级{% elif g == '2' %}二年级{% elif g == '3' %}三年级{% elif g == '4' %}四年级{% elif g == '5' %}五年级{% else %}六年级{% endif %}</div>
+        {% if nodes %}
+        <div class="node-list">
+          {% for node in nodes %}
+          <button type="button" class="node-chip"
+                  data-line="{{ line.code }}" data-grade="{{ g }}" data-idx="{{ loop.index0 }}"
+                  onclick="showNode(this)">
+            <span class="node-dot"></span>{{ node.name }}
+          </button>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="node-empty">—</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+</div>
+{% endblock %}

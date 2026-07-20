@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160">
+<rect width="240" height="160" fill="#ffffff"/><path d="M120 80 L120.0 40.0 A40 40 0 0 1 143.5 112.4 Z" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><circle cx="120" cy="80" r="40" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><circle cx="120" cy="80" r="40" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><text x="120" y="134" text-anchor="middle" font-size="9" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">各部分占整体的百分比</text>
+</svg>

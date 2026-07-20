@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block title %}数学计算 · 小学自学系统{% endblock %}
+{% block content %}
+
+<div class="page-head">
+  <h1>数学计算 · 口算练习</h1>
+  <p class="muted">选年级和运算，一键出题，自己填答案，点“批改”看对错与得分。纯本地、不联网。</p>
+</div>
+
+<div class="calc-panel">
+  <div class="calc-controls">
+    <label>年级
+      <select id="calc-grade">
+        <option value="1">一年级</option>
+        <option value="2">二年级</option>
+        <option value="3">三年级</option>
+        <option value="4">四年级</option>
+        <option value="5">五年级</option>
+        <option value="6">六年级</option>
+      </select>
+    </label>
+    <label>运算
+      <select id="calc-op">
+        <option value="add">加法</option>
+        <option value="sub">减法</option>
+        <option value="mul">乘法</option>
+        <option value="div">除法</option>
+        <option value="mix">混合</option>
+      </select>
+    </label>
+    <label>题数
+      <select id="calc-count">
+        <option value="5">5 题</option>
+        <option value="10" selected>10 题</option>
+        <option value="20">20 题</option>
+      </select>
+    </label>
+    <button type="button" class="btn" id="calc-gen">出题</button>
+  </div>
+  <div class="calc-score" id="calc-score" hidden></div>
+  <div class="calc-list" id="calc-list"></div>
+  <div class="calc-actions" id="calc-actions" hidden>
+    <button type="button" class="btn btn-sm" id="calc-check">批改</button>
+    <button type="button" class="btn btn-ghost btn-sm" id="calc-again">再来一组</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  const gradeSel = document.getElementById('calc-grade');
+  const opSel = document.getElementById('calc-op');
+  const countSel = document.getElementById('calc-count');
+  const genBtn = document.getElementById('calc-gen');
+  const checkBtn = document.getElementById('calc-check');
+  const againBtn = document.getElementById('calc-again');
+  const listEl = document.getElementById('calc-list');
+  const scoreEl = document.getElementById('calc-score');
+  const actionsEl = document.getElementById('calc-actions');
+
+  const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+  // 按年级 + 运算生成一道题，返回 {text, answer}
+  function genOne(grade, op) {
+    const o = op === 'mix'
+      ? ['add', 'sub', 'mul', 'div'][rand(0, 3)]
+      : op;
+    let a, b, ans, text;
+    if (grade <= 1) {
+      if (o === 'add') { a = rand(1, 20); b = rand(1, 20); ans = a + b; text = `${a} + ${b}`; }
+      else if (o === 'sub') { a = rand(1, 20); b = rand(1, a); ans = a - b; text = `${a} − ${b}`; }
+      else if (o === 'mul') { a = rand(1, 9); b = rand(1, 9); ans = a * b; text = `${a} × ${b}`; }
+      else { b = rand(1, 9); ans = rand(1, 9); a = b * ans; text = `${a} ÷ ${b}`; }
+    } else if (grade === 2) {
+      if (o === 'add') { a = rand(10, 999); b = rand(10, 999); ans = a + b; text = `${a} + ${b}`; }
+      else if (o === 'sub') { a = rand(10, 999); b = rand(1, a); ans = a - b; text = `${a} − ${b}`; }
+      else if (o === 'mul') { a = rand(2, 9); b = rand(2, 9); ans = a * b; text = `${a} × ${b}`; }
+      else { b = rand(2, 9); ans = rand(2, 9); a = b * ans; text = `${a} ÷ ${b}`; }
+    } else if (grade === 3) {
+      if (o === 'add') { a = rand(100, 999); b = rand(100, 999); ans = a + b; text = `${a} + ${b}`; }
+      else if (o === 'sub') { a = rand(100, 999); b = rand(1, a); ans = a - b; text = `${a} − ${b}`; }
+      else if (o === 'mul') { a = rand(2, 9); b = rand(10, 99); ans = a * b; text = `${a} × ${b}`; }
+      else { b = rand(2, 9); ans = rand(10, 99); a = b * ans; text = `${a} ÷ ${b}`; }
+    } else if (grade === 4) {
+      if (o === 'add') { a = rand(100, 999); b = rand(100, 999); ans = a + b; text = `${a} + ${b}`; }
+      else if (o === 'sub') { a = rand(100, 999); b = rand(1, a); ans = a - b; text = `${a} − ${b}`; }
+      else if (o === 'mul') { a = rand(10, 99); b = rand(10, 99); ans = a * b; text = `${a} × ${b}`; }
+      else { b = rand(11, 99); ans = rand(2, 9); a = b * ans; text = `${a} ÷ ${b}`; }
+    } else if (grade === 5) {
+      if (o === 'add' || o === 'sub') {
+        // 小数加减
+        const dec = Math.random() < 0.5 ? 1 : 2;
+        a = rand(1, 99) / Math.pow(10, dec);
+        b = rand(1, 99) / Math.pow(10, dec);
+        ans = o === 'add' ? +(a + b).toFixed(2) : +(a - b).toFixed(2);
+        text = `${a} ${o === 'add' ? '+' : '−'} ${b}`;
+      } else if (o === 'mul') { a = rand(2, 9); b = +(rand(10, 99) / 10).toFixed(1); ans = +(a * b).toFixed(2); text = `${a} × ${b}`; }
+      else { b = rand(2, 9); ans = +(rand(10, 99) / 10).toFixed(1); a = +(b * ans).toFixed(1); text = `${a} ÷ ${b}`; }
+    } else {
+      // 六年级：分数/百分数/比例
+      if (o === 'add' || o === 'sub') {
+        a = rand(1, 50); b = rand(1, 50); ans = o === 'add' ? a + b : a - b; text = `${a} + ${b}`;
+      } else if (o === 'mul') { a = rand(2, 12); b = rand(2, 12); ans = a * b; text = `${a} × ${b}`; }
+      else { b = rand(2, 12); ans = rand(2, 12); a = b * ans; text = `${a} ÷ ${b}`; }
+    }
+    return { text, answer: String(ans) };
+  }
+
+  function generate() {
+    const grade = Number(gradeSel.value);
+    const op = opSel.value;
+    const count = Number(countSel.value);
+    listEl.innerHTML = '';
+    scoreEl.hidden = true;
+    for (let i = 0; i < count; i++) {
+      const p = genOne(grade, op);
+      const row = document.createElement('div');
+      row.className = 'calc-row';
+      row.innerHTML =
+        `<span class="calc-idx">${i + 1}.</span>` +
+        `<span class="calc-q">${p.text} =</span>` +
+        `<input class="calc-input" type="text" inputmode="decimal" data-ans="${p.answer}" autocomplete="off">` +
+        `<span class="calc-fb"></span>`;
+      listEl.appendChild(row);
+    }
+    actionsEl.hidden = false;
+    const first = listEl.querySelector('input');
+    if (first) first.focus();
+  }
+
+  function check() {
+    const inputs = listEl.querySelectorAll('input.calc-input');
+    let right = 0;
+    inputs.forEach(inp => {
+      const fb = inp.parentElement.querySelector('.calc-fb');
+      const user = inp.value.trim().replace(/^0+(?=\d)/, '');
+      const ans = inp.dataset.ans;
+      if (user === ans) {
+        right++;
+        inp.classList.add('ok'); inp.classList.remove('bad');
+        fb.textContent = '✓'; fb.className = 'calc-fb ok';
+      } else {
+        inp.classList.add('bad'); inp.classList.remove('ok');
+        fb.textContent = '✗ 正确答案 ' + ans; fb.className = 'calc-fb bad';
+      }
+    });
+    const total = inputs.length;
+    scoreEl.hidden = false;
+    scoreEl.innerHTML = `得分：<b>${right}/${total}</b>　${right === total ? '🎉 全对，太棒了！' : '继续加油～'}`;
+  }
+
+  genBtn.addEventListener('click', generate);
+  checkBtn.addEventListener('click', check);
+  againBtn.addEventListener('click', generate);
+  generate();
+})();
+</script>
+{% endblock %}

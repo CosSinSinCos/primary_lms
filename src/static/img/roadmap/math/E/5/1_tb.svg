@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160">
+<rect width="240" height="160" fill="#ffffff"/><path d="M120.0 65.0 A30 30 0 1 1 90.0 95.0" fill="none" stroke="#333" stroke-width="1.5"/><line x1="98" y1="95" x2="98" y2="70" stroke="#333" stroke-width="1.5"/><rect x="90" y="60" width="16" height="12" rx="2" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><text x="120" y="130" text-anchor="middle" font-size="11" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">升 L / 毫升 mL</text>
+</svg>

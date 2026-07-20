@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}解题思路 · 小学自学系统{% endblock %}
+{% block content %}
+
+<script id="strategy-data" type="application/json">{{ strategies | tojson }}</script>
+
+<div class="page-head">
+  <h1>解题思路 · 解题策略库</h1>
+  <p class="muted">点一种策略，上方黑板讲解“什么时候用、怎么用、例题怎么解”。🧠</p>
+</div>
+
+<section id="board" class="board-wrap" aria-live="polite">
+  <div class="blackboard">
+    <div id="board-empty" class="board-empty">
+      👆 点下面的解题策略，看看它适合什么题、怎么想～
+    </div>
+    <div id="board-content" class="board-content" hidden>
+      <div class="board-lesson-tag" id="board-tag">🧠 解题策略</div>
+      <h2 id="board-title" class="board-title"></h2>
+      <div id="board-sections"></div>
+    </div>
+  </div>
+</section>
+
+<div class="strategy-grid">
+  {% for s in strategies %}
+  <button type="button" class="strategy-card" data-id="{{ s.id }}" onclick="showStrategy(this)">
+    <span class="strategy-name">{{ s.name }}</span>
+    <span class="strategy-sum">{{ s.summary }}</span>
+  </button>
+  {% endfor %}
+</div>
+{% endblock %}

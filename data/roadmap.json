@@ -1,0 +1,1734 @@
+{
+  "math": {
+    "name": "数学",
+    "lines": [
+      {
+        "code": "A",
+        "name": "整数计算",
+        "grades": {
+          "1": [
+            {
+              "name": "20以内进位加法",
+              "example": "例题：9 + 5 = ?\n用凑十法：把 5 分成 1 和 4，先算 9+1=10，再算 10+4=14。",
+              "textbook": "（人教版 一年级上册·9加几）运动会分牛奶，一盒装10瓶。算 9+4 时，把 4 分成 1 和 3，先算 9+1=10，再算 10+3=13，这叫『凑十法』。",
+              "comic": "🐰 小兔：9 个胡萝卜再加 5 个，怎么数得快？\n🦊 狐狸：借 1 个给 9 凑成 10，剩下 4 个，一共 14！",
+              "textbook_svg": "img/roadmap/math/A/1/0_tb.svg",
+              "comic_svg": "img/roadmap/math/A/1/0_comic.svg"
+            },
+            {
+              "name": "20以内退位减法",
+              "example": "例题：13 - 9 = ?\n用破十法：把 13 分成 10 和 3，先算 10-9=1，再算 1+3=4。",
+              "textbook": "（人教版 一年级下册·20以内的退位减法）算 15-9，用『破十法』：把 15 分成 10 和 5，先算 10-9=1，再算 1+5=6。",
+              "comic": "🍎 13 个苹果吃掉 9 个：先拿 10 个盘里吃掉 9 剩 1，再加回 3 个 = 4。",
+              "textbook_svg": "img/roadmap/math/A/1/1_tb.svg",
+              "comic_svg": "img/roadmap/math/A/1/1_comic.svg"
+            },
+            {
+              "name": "100以内加减法",
+              "example": "例题：35 + 27 = 62\n个位 5+7=12 写 2 进 1，十位 3+2+1=6。",
+              "textbook": "（人教版 一年级下册·100以内的加法和减法）笔算时，相同数位对齐，从个位加起；个位相加满十，就向十位进一。",
+              "comic": "🧮 小熊 35 元 + 小兔 27 元：个位 5+7=12 写 2 进 1，十位 3+2+1=6，共 62 元。",
+              "textbook_svg": "img/roadmap/math/A/1/2_tb.svg",
+              "comic_svg": "img/roadmap/math/A/1/2_comic.svg"
+            },
+            {
+              "name": "表内乘法(一)",
+              "example": "例题：3 × 4 = 12（三四十二）",
+              "textbook": "（人教版 二年级上册·表内乘法（一））求几个相同加数的和，用乘法计算更简便。如 3 个 5 相加，可写成 3×5 或 5×3。",
+              "comic": "🐛 3 条毛毛虫各 4 只脚，3 个 4 相加 = 12 只脚，记作 3×4=12。",
+              "textbook_svg": "img/roadmap/math/A/1/3_tb.svg",
+              "comic_svg": "img/roadmap/math/A/1/3_comic.svg"
+            },
+            {
+              "name": "表内乘法(二)",
+              "example": "例题：7 × 8 = 56（七八五十六）",
+              "textbook": "（人教版 二年级上册·表内乘法（二））七、八、九的乘法口诀要记牢，如『七八五十六』『九九八十一』。",
+              "comic": "🎹 钢琴 7 个白键一组共 8 组，7×8 = 56 个白键。",
+              "textbook_svg": "img/roadmap/math/A/1/4_tb.svg",
+              "comic_svg": "img/roadmap/math/A/1/4_comic.svg"
+            },
+            {
+              "name": "表内除法(一)",
+              "example": "例题：12 ÷ 3 = 4（三四十二）",
+              "textbook": "（人教版 二年级下册·表内除法（一））把 12 个竹笋平均放在 4 个盘里，每盘 3 个，写成 12÷4=3，读作 12 除以 4 等于 3。",
+              "comic": "🍪 12 块饼干平均分给 3 人，每人 4 块，12÷3=4。",
+              "textbook_svg": "img/roadmap/math/A/1/5_tb.svg",
+              "comic_svg": "img/roadmap/math/A/1/5_comic.svg"
+            },
+            {
+              "name": "表内除法(二)",
+              "example": "例题：56 ÷ 7 = 8（七八五十六）",
+              "textbook": "（人教版 二年级下册·表内除法（二））用 7、8、9 的乘法口诀求商，如 56÷8=7，想的口诀是『七八五十六』。",
+              "comic": "🍬 56 颗糖分 7 袋，每袋 8 颗，口诀『七八五十六』。",
+              "textbook_svg": "img/roadmap/math/A/1/6_tb.svg",
+              "comic_svg": "img/roadmap/math/A/1/6_comic.svg"
+            }
+          ],
+          "2": [
+            {
+              "name": "万以内的加法和减法",
+              "example": "例题：345 + 287 = 632",
+              "textbook": "（人教版 二年级下册·万以内的加法和减法）笔算几百几十加几百几十，相同数位对齐，从个位加起，哪一位满十向前一位进一。",
+              "comic": "🏔️ 登山 345 米再爬 287 米，个位 5+7=12 进 1……一路进位到 632 米。",
+              "textbook_svg": "img/roadmap/math/A/2/0_tb.svg",
+              "comic_svg": "img/roadmap/math/A/2/0_comic.svg"
+            },
+            {
+              "name": "有余数的除法",
+              "example": "例题：23 ÷ 5 = 4……3",
+              "textbook": "（人教版 二年级下册·有余数的除法）23 个草莓，每盘放 5 个，可以放 4 盘，还剩 3 个，写成 23÷5=4（盘）……3（个）。余数要比除数小。",
+              "comic": "🍕 23 块披萨 5 人分，每人 4 块剩 3 块，23÷5 = 4 余 3。",
+              "textbook_svg": "img/roadmap/math/A/2/1_tb.svg",
+              "comic_svg": "img/roadmap/math/A/2/1_comic.svg"
+            },
+            {
+              "name": "整百整千数加减",
+              "example": "例题：300 + 500 = 800",
+              "textbook": "（人教版 二年级下册·整百、整千数加减法）电视机 1000 元，冰箱 2000 元，一共 3000 元，即 1000+2000=3000。",
+              "comic": "💰 300 元 + 500 元 = 800 元，就是 3 个百加 5 个百。",
+              "textbook_svg": "img/roadmap/math/A/2/2_tb.svg",
+              "comic_svg": "img/roadmap/math/A/2/2_comic.svg"
+            },
+            {
+              "name": "混合运算",
+              "example": "例题：12 + 3 × 4 = 24（先乘后加）",
+              "textbook": "（人教版 二年级下册·混合运算）在没有括号的算式里，既有乘除法又有加减法，要先算乘除法，后算加减法。",
+              "comic": "🍔 汉堡 3 元买 4 个 = 12 元，再加 1 瓶饮料 12+12 = 24 元。",
+              "textbook_svg": "img/roadmap/math/A/2/3_tb.svg",
+              "comic_svg": "img/roadmap/math/A/2/3_comic.svg"
+            }
+          ],
+          "3": [
+            {
+              "name": "万以内的加法和减法(二)",
+              "example": "例题：376 + 284 = 660",
+              "textbook": "（人教版 三年级上册·万以内的加法和减法（二））笔算加法，相同数位对齐，从个位加起，哪一位上的数相加满十，就向前一位进一。",
+              "comic": "🚂 火车原有 376 人又上 284 人，满十进一，共 660 人。",
+              "textbook_svg": "img/roadmap/math/A/3/0_tb.svg",
+              "comic_svg": "img/roadmap/math/A/3/0_comic.svg"
+            },
+            {
+              "name": "倍的认识",
+              "example": "例题：苹果 3 个，梨是苹果的 2 倍，梨有 6 个。",
+              "textbook": "（人教版 三年级上册·倍的认识）胡萝卜有 2 根，红萝卜有 6 根，红萝卜的根数是胡萝卜的 3 倍。『倍』表示两个数之间的一种关系。",
+              "comic": "🍎 3 个苹果，🍐 梨是它的 2 倍 → 2 个 3，共 6 个梨。",
+              "textbook_svg": "img/roadmap/math/A/3/1_tb.svg",
+              "comic_svg": "img/roadmap/math/A/3/1_comic.svg"
+            },
+            {
+              "name": "多位数乘一位数",
+              "example": "例题：23 × 3 = 69",
+              "textbook": "（人教版 三年级上册·多位数乘一位数）每箱 24 瓶，9 箱一共多少瓶？笔算时从个位起，用一位数依次乘多位数的每一位。",
+              "comic": "📦 每箱 23 本书买 3 箱：3×3=9，2×3=6，共 69 本。",
+              "textbook_svg": "img/roadmap/math/A/3/2_tb.svg",
+              "comic_svg": "img/roadmap/math/A/3/2_comic.svg"
+            },
+            {
+              "name": "除数是一位数的除法",
+              "example": "例题：48 ÷ 2 = 24",
+              "textbook": "（人教版 三年级下册·除数是一位数的除法）从最高位除起，除到哪一位，商就写在那一位的上面。",
+              "comic": "🍪 48 块饼干分 2 天，每天 24 块。",
+              "textbook_svg": "img/roadmap/math/A/3/3_tb.svg",
+              "comic_svg": "img/roadmap/math/A/3/3_comic.svg"
+            }
+          ],
+          "4": [
+            {
+              "name": "大数的认识",
+              "example": "例题：读出 3070000 → 三百零七万",
+              "textbook": "（人教版 四年级上册·大数的认识）含有两级的数，先读万级，再读个级；万级的数按个级读法来读，再在后面加上一个『万』字。",
+              "comic": "🏙️ 城市人口 3070000，先读 307 万级再加『万』→ 三百零七万。",
+              "textbook_svg": "img/roadmap/math/A/4/0_tb.svg",
+              "comic_svg": "img/roadmap/math/A/4/0_comic.svg"
+            },
+            {
+              "name": "三位数乘两位数",
+              "example": "例题：145 × 12 = 1740",
+              "textbook": "（人教版 四年级上册·三位数乘两位数）李叔叔乘火车去北京用了 12 小时，每小时行 145 千米，该城市到北京 145×12=1740 千米。",
+              "comic": "🚗 每车 145 千米/时开 12 时：145×12 = 1740 千米。",
+              "textbook_svg": "img/roadmap/math/A/4/1_tb.svg",
+              "comic_svg": "img/roadmap/math/A/4/1_comic.svg"
+            },
+            {
+              "name": "除数是两位数的除法",
+              "example": "例题：150 ÷ 30 = 5",
+              "textbook": "（人教版 四年级上册·除数是两位数的除法）被除数的前两位比除数小，就要看前三位，除到哪一位，商就写在那一位上。",
+              "comic": "🎁 150 份礼每 30 一箱，正好装 5 箱。",
+              "textbook_svg": "img/roadmap/math/A/4/2_tb.svg",
+              "comic_svg": "img/roadmap/math/A/4/2_comic.svg"
+            },
+            {
+              "name": "运算定律",
+              "example": "例题：25 × 4 = 4 × 25（乘法交换律）",
+              "textbook": "（人教版 四年级下册·运算定律）两个数相乘，交换因数的位置，积不变，这叫做乘法交换律：a×b=b×a。",
+              "comic": "🔁 25×4 和 4×25 结果一样，换位置不影响乘积。",
+              "textbook_svg": "img/roadmap/math/A/4/3_tb.svg",
+              "comic_svg": "img/roadmap/math/A/4/3_comic.svg"
+            },
+            {
+              "name": "整数四则运算",
+              "example": "例题：先乘除后加减，有括号先算括号里。",
+              "textbook": "（人教版 四年级下册·四则运算）算式里有括号，要先算括号里面的；没有括号时，先算乘除法，后算加减法。",
+              "comic": "🤹 小丑先 juggle 乘除再加减，遇到括号最优先。",
+              "textbook_svg": "img/roadmap/math/A/4/4_tb.svg",
+              "comic_svg": "img/roadmap/math/A/4/4_comic.svg"
+            }
+          ],
+          "5": [
+            {
+              "name": "小数加减法(整数基础)",
+              "example": "例题：3.5 + 2.4 = 5.9",
+              "textbook": "（人教版 四年级下册·小数的加法和减法）小丽买两本书，一本 6.45 元、一本 4.29 元。计算时小数点要对齐，也就是把相同数位对齐。",
+              "comic": "📏 3.5cm + 2.4cm，小数点对齐，5+4=9、3+2=5，得 5.9。",
+              "textbook_svg": "img/roadmap/math/A/5/0_tb.svg",
+              "comic_svg": "img/roadmap/math/A/5/0_comic.svg"
+            },
+            {
+              "name": "简便运算",
+              "example": "例题：25 × 7 × 4 = 25 × 4 × 7 = 700",
+              "textbook": "（人教版 四年级下册·整数加法运算定律推广到小数）整数加法的交换律、结合律对小数加法同样适用，可使计算简便。",
+              "comic": "🪄 25×7×4 变魔术：先算 25×4=100，再 ×7 = 700。",
+              "textbook_svg": "img/roadmap/math/A/5/1_tb.svg",
+              "comic_svg": "img/roadmap/math/A/5/1_comic.svg"
+            },
+            {
+              "name": "因数与倍数",
+              "example": "例题：6 是 3 的倍数，3 是 6 的因数。",
+              "textbook": "（人教版 五年级下册·因数与倍数）12÷2=6，12 能被 2 整除，2 是 12 的因数，12 是 2 的倍数。（研究时一般指不是 0 的自然数）",
+              "comic": "🧱 6 块砖每 3 块一摞正好 2 摞，所以 3 是 6 的因数。",
+              "textbook_svg": "img/roadmap/math/A/5/2_tb.svg",
+              "comic_svg": "img/roadmap/math/A/5/2_comic.svg"
+            }
+          ],
+          "6": [
+            {
+              "name": "分数加减法(整数基础)",
+              "example": "例题：1/4 + 2/4 = 3/4",
+              "textbook": "（人教版 六年级上册·分数加法和减法）同分母分数相加，分母不变，分子相加。",
+              "comic": "🍕 1/4 块 + 2/4 块 = 3/4 块披萨。",
+              "textbook_svg": "img/roadmap/math/A/6/0_tb.svg",
+              "comic_svg": "img/roadmap/math/A/6/0_comic.svg"
+            },
+            {
+              "name": "百分数与整数",
+              "example": "例题：50% = 0.5 = 1/2",
+              "textbook": "（人教版 六年级上册·百分数）百分数表示一个数是另一个数的百分之几，也叫做百分率或百分比。",
+              "comic": "🎯 命中 50% 就是一半，50% = 1/2。",
+              "textbook_svg": "img/roadmap/math/A/6/1_tb.svg",
+              "comic_svg": "img/roadmap/math/A/6/1_comic.svg"
+            },
+            {
+              "name": "负数初步",
+              "example": "例题：-3 比 0 小，表示零下 3 度。",
+              "textbook": "（人教版 六年级下册·负数）像 -3、-2、-1 这样的数叫做负数，而 0 既不是正数，也不是负数。北京冬天可低到 -11℃。",
+              "comic": "🌡️ 零下 3 度记作 -3℃，比 0℃ 还冷。",
+              "textbook_svg": "img/roadmap/math/A/6/2_tb.svg",
+              "comic_svg": "img/roadmap/math/A/6/2_comic.svg"
+            }
+          ]
+        }
+      },
+      {
+        "code": "B",
+        "name": "小数",
+        "grades": {
+          "1": [],
+          "2": [],
+          "3": [
+            {
+              "name": "小数的初步认识",
+              "example": "例题：0.1 元 = 1 角，0.5 = 5/10",
+              "textbook": "（人教版 三年级下册·小数的初步认识）把 1 米平均分成 10 份，每份是 1 分米，写成分数是 1/10 米，写成小数是 0.1 米。像 0.1、0.3 这样的是一位小数。",
+              "comic": "🪙 0.1 元就是 1 角，10 个 0.1 元 = 1 元。",
+              "textbook_svg": "img/roadmap/math/B/3/0_tb.svg",
+              "comic_svg": "img/roadmap/math/B/3/0_comic.svg"
+            }
+          ],
+          "4": [
+            {
+              "name": "小数的意义和性质",
+              "example": "例题：0.3 = 0.30（大小不变）",
+              "textbook": "（人教版 四年级下册·小数的意义和性质）小数的末尾添上『0』或去掉『0』，小数的大小不变，这叫做小数的性质，如 0.3=0.30。",
+              "comic": "🎈 0.3 米和 0.30 米一样长，尾巴去不掉也长不出。",
+              "textbook_svg": "img/roadmap/math/B/4/0_tb.svg",
+              "comic_svg": "img/roadmap/math/B/4/0_comic.svg"
+            },
+            {
+              "name": "小数加减法",
+              "example": "例题：1.25 + 0.75 = 2.00",
+              "textbook": "（人教版 四年级下册·小数的加法和减法）计算小数加、减法，先把各数的小数点对齐，再按整数加、减法计算。",
+              "comic": "💧 1.25L + 0.75L，小数点对齐满十进一，共 2 升。",
+              "textbook_svg": "img/roadmap/math/B/4/1_tb.svg",
+              "comic_svg": "img/roadmap/math/B/4/1_comic.svg"
+            }
+          ],
+          "5": [
+            {
+              "name": "小数乘法",
+              "example": "例题：2.5 × 4 = 10",
+              "textbook": "（人教版 五年级上册·小数乘法）先按整数乘法算出积，再看因数中一共有几位小数，就从积的右边起数出几位，点上小数点。",
+              "comic": "🛒 2.5 元/支 × 4 支 = 10 元：先算 25×4=100，退一位得 10.0。",
+              "textbook_svg": "img/roadmap/math/B/5/0_tb.svg",
+              "comic_svg": "img/roadmap/math/B/5/0_comic.svg"
+            },
+            {
+              "name": "小数除法",
+              "example": "例题：5.6 ÷ 0.8 = 7",
+              "textbook": "（人教版 五年级上册·小数除法）王鹏每周计划跑 5.6 千米，平均每天跑多少千米？除数是小数时，先移动小数点把它变成整数。",
+              "comic": "🥤 5.6 升可乐每 0.8 升一杯，都 ×10 变成 56÷8 = 7 杯。",
+              "textbook_svg": "img/roadmap/math/B/5/1_tb.svg",
+              "comic_svg": "img/roadmap/math/B/5/1_comic.svg"
+            },
+            {
+              "name": "小数应用题",
+              "example": "例题：速度 4.5km/h 走 2 小时 = 9km",
+              "textbook": "（人教版 五年级上册·小数乘法应用）行程问题：速度×时间=路程；购物问题：单价×数量=总价。",
+              "comic": "🚶 每小时 4.5 千米走 2 时：4.5×2 = 9 千米。",
+              "textbook_svg": "img/roadmap/math/B/5/2_tb.svg",
+              "comic_svg": "img/roadmap/math/B/5/2_comic.svg"
+            }
+          ],
+          "6": [
+            {
+              "name": "百分数(小数相关)",
+              "example": "例题：0.25 = 25%",
+              "textbook": "（人教版 六年级上册·百分数）小数化成百分数，只要把小数点向右移动两位，同时在后面添上百分号，如 0.24=24%。",
+              "comic": "🔄 0.25 右移两位加 % → 25%。",
+              "textbook_svg": "img/roadmap/math/B/6/0_tb.svg",
+              "comic_svg": "img/roadmap/math/B/6/0_comic.svg"
+            },
+            {
+              "name": "小数与分数互化",
+              "example": "例题：0.2 = 1/5",
+              "textbook": "（人教版 六年级上册·百分数）小数化分数：0.2=2/10=1/5；分数化小数：1/4=0.25。",
+              "comic": "🧩 0.2 = 2/10 = 1/5，像拼图两块变一块。",
+              "textbook_svg": "img/roadmap/math/B/6/1_tb.svg",
+              "comic_svg": "img/roadmap/math/B/6/1_comic.svg"
+            }
+          ]
+        }
+      },
+      {
+        "code": "C",
+        "name": "分数百分数比",
+        "grades": {
+          "1": [],
+          "2": [],
+          "3": [
+            {
+              "name": "分数的初步认识",
+              "example": "例题：把一个披萨平均分成 4 份，1 份是 1/4。",
+              "textbook": "（人教版 三年级上册·分数的初步认识）把一个披萨平均分成 4 份，每份是它的四分之一，写作 1/4。像 1/2、1/4、1/3 这样的数都是分数。",
+              "comic": "🍕 圆披萨切 4 刀平均分，拿 1 块就是 1/4。",
+              "textbook_svg": "img/roadmap/math/C/3/0_tb.svg",
+              "comic_svg": "img/roadmap/math/C/3/0_comic.svg"
+            }
+          ],
+          "4": [
+            {
+              "name": "分数的意义和性质",
+              "example": "例题：3/4 的分母表示平均分成 4 份。",
+              "textbook": "（人教版 五年级下册·分数的意义和性质）把单位『1』平均分成若干份，表示这样一份或几份的数叫分数。",
+              "comic": "🎂 一块蛋糕当单位 1，切 4 份取 3 份 = 3/4。",
+              "textbook_svg": "img/roadmap/math/C/4/0_tb.svg",
+              "comic_svg": "img/roadmap/math/C/4/0_comic.svg"
+            },
+            {
+              "name": "分数加减法",
+              "example": "例题：1/8 + 3/8 = 4/8 = 1/2",
+              "textbook": "（人教版 五年级下册·同分母分数加、减法）爸爸吃了 1/8 个西瓜，妈妈吃了 3/8，同分母分数相加，分母不变，分子相加。",
+              "comic": "🧁 1/8 杯 + 3/8 杯 = 4/8 杯 = 半杯。",
+              "textbook_svg": "img/roadmap/math/C/4/1_tb.svg",
+              "comic_svg": "img/roadmap/math/C/4/1_comic.svg"
+            }
+          ],
+          "5": [
+            {
+              "name": "分数加法和减法",
+              "example": "例题：1/2 + 1/3 = 5/6（先通分）",
+              "textbook": "（人教版 五年级下册·异分母分数加、减法）异分母分数相加，先通分，化成同分母分数，再按照同分母分数加、减法计算。",
+              "comic": "🍋 1/2 + 1/3，找公分母 6：3/6 + 2/6 = 5/6。",
+              "textbook_svg": "img/roadmap/math/C/5/0_tb.svg",
+              "comic_svg": "img/roadmap/math/C/5/0_comic.svg"
+            },
+            {
+              "name": "分数乘法",
+              "example": "例题：1/2 × 1/3 = 1/6",
+              "textbook": "（人教版 六年级上册·分数乘法）1 桶水 12 升，求 1/2 桶是多少，列式为 12×1/2。分数乘分数，分子乘分子，分母乘分母。",
+              "comic": "🍫 一半的一半：1/2 × 1/3 = 1/6（长条分 3 再取半）。",
+              "textbook_svg": "img/roadmap/math/C/5/1_tb.svg",
+              "comic_svg": "img/roadmap/math/C/5/1_comic.svg"
+            },
+            {
+              "name": "分数除法",
+              "example": "例题：2/3 ÷ 1/2 = 4/3",
+              "textbook": "（人教版 六年级上册·分数除法）一个数除以一个不等于 0 的数，等于乘这个数的倒数。",
+              "comic": "➗ 2/3 ÷ 1/2 = 2/3 × 2 = 4/3，倒数翻跟头。",
+              "textbook_svg": "img/roadmap/math/C/5/2_tb.svg",
+              "comic_svg": "img/roadmap/math/C/5/2_comic.svg"
+            },
+            {
+              "name": "比的意义和性质",
+              "example": "例题：3 : 2 表示 3 比 2。",
+              "textbook": "（人教版 六年级上册·比）长 15 cm、宽 10 cm 的旗，长和宽的比写作 15:10。比的前项和后项同时乘或除以相同的数（0 除外），比值不变。",
+              "comic": "🐢🐇 龟兔速度比 3:2，同缩同放比值不变。",
+              "textbook_svg": "img/roadmap/math/C/5/3_tb.svg",
+              "comic_svg": "img/roadmap/math/C/5/3_comic.svg"
+            }
+          ],
+          "6": [
+            {
+              "name": "百分数",
+              "example": "例题：出勤率 = 出勤人数 ÷ 总人数 × 100%",
+              "textbook": "（人教版 六年级上册·百分数）出勤率 = 出勤人数÷总人数×100%；发芽率 = 发芽种子数÷试验种子数×100%。",
+              "comic": "🙋 全班 50 人 45 人到，45÷50 = 90% 出勤。",
+              "textbook_svg": "img/roadmap/math/C/6/0_tb.svg",
+              "comic_svg": "img/roadmap/math/C/6/0_comic.svg"
+            },
+            {
+              "name": "比例",
+              "example": "例题：2 : 3 = 4 : 6（内项积 = 外项积）",
+              "textbook": "（人教版 六年级下册·比例）表示两个比相等的式子叫做比例，如 2.4:1.6=60:40。在比例里，两个外项的积等于两个内项的积。",
+              "comic": "⚖️ 2:3 和 4:6 天平平衡：外积 2×6 = 内积 3×4 = 12。",
+              "textbook_svg": "img/roadmap/math/C/6/1_tb.svg",
+              "comic_svg": "img/roadmap/math/C/6/1_comic.svg"
+            },
+            {
+              "name": "比和比例应用",
+              "example": "例题：比例尺 1:1000，图上 1cm = 实际 10m。",
+              "textbook": "（人教版 六年级下册·比例的应用）比例尺 = 图上距离:实际距离。地图上的 1 cm 可能代表实际的 50 km。",
+              "comic": "🗺️ 地图 1 厘米代表现实 10 米，缩小 1000 倍装进口袋。",
+              "textbook_svg": "img/roadmap/math/C/6/2_tb.svg",
+              "comic_svg": "img/roadmap/math/C/6/2_comic.svg"
+            }
+          ]
+        }
+      },
+      {
+        "code": "D",
+        "name": "几何",
+        "grades": {
+          "1": [
+            {
+              "name": "认识立体图形",
+              "example": "例题：常见立体图形有长方体、正方体、圆柱、球。",
+              "textbook": "（人教版 一年级上册·认识图形（一））我们认识的立体图形有长方体、正方体、圆柱和球。",
+              "comic": "📦🧊🥫⚽ 积木家族四兄弟排排站。",
+              "textbook_svg": "img/roadmap/math/D/1/0_tb.svg",
+              "comic_svg": "img/roadmap/math/D/1/0_comic.svg"
+            },
+            {
+              "name": "认识平面图形",
+              "example": "例题：长方形、正方形、三角形、圆。",
+              "textbook": "（人教版 一年级下册·认识图形（二））长方形、正方形、三角形和圆都是平面图形。",
+              "comic": "🔺⬛⭕ 从立体图形滚出平面的影子。",
+              "textbook_svg": "img/roadmap/math/D/1/1_tb.svg",
+              "comic_svg": "img/roadmap/math/D/1/1_comic.svg"
+            },
+            {
+              "name": "位置(上下左右前后)",
+              "example": "例题：书在桌子的上面。",
+              "textbook": "（人教版 一年级上册·位置）用上、下、前、后、左、右来描述物体的位置。",
+              "comic": "🐱 猫在桌子『上』，狗在『下』，排排坐。",
+              "textbook_svg": "img/roadmap/math/D/1/2_tb.svg",
+              "comic_svg": "img/roadmap/math/D/1/2_comic.svg"
+            }
+          ],
+          "2": [
+            {
+              "name": "长度单位",
+              "example": "例题：1 米 = 100 厘米",
+              "textbook": "（人教版 二年级上册·长度单位）量比较短的物体可以用『厘米』作单位，食指宽大约 1 厘米；量较长的物体通常用『米』，1 米=100 厘米。",
+              "comic": "📏 1 米尺 = 100 个 1 厘米小格手拉手。",
+              "textbook_svg": "img/roadmap/math/D/2/0_tb.svg",
+              "comic_svg": "img/roadmap/math/D/2/0_comic.svg"
+            },
+            {
+              "name": "角的初步认识",
+              "example": "例题：三角板有一个直角。",
+              "textbook": "（人教版 二年级上册·角的初步认识）一个角有 1 个顶点、2 条边；方方正正的角是直角。",
+              "comic": "📐 三角板喊：我这儿有个直角！",
+              "textbook_svg": "img/roadmap/math/D/2/1_tb.svg",
+              "comic_svg": "img/roadmap/math/D/2/1_comic.svg"
+            },
+            {
+              "name": "观察物体(一)",
+              "example": "例题：从前面看是 □，从侧面看是 ▯。",
+              "textbook": "（人教版 二年级上册·观察物体（一））从前面、侧面、上面观察同一个物体，看到的形状可能不一样。",
+              "comic": "🧊 正方体转一转，正面侧面都是方。",
+              "textbook_svg": "img/roadmap/math/D/2/2_tb.svg",
+              "comic_svg": "img/roadmap/math/D/2/2_comic.svg"
+            },
+            {
+              "name": "图形的运动(一)",
+              "example": "例题：平移、旋转、轴对称。",
+              "textbook": "（人教版 二年级下册·图形的运动（一））平移、旋转和轴对称都是图形的运动方式，对折后完全重合的是轴对称图形。",
+              "comic": "🚗 平移滑过去，🌀 旋转转圈圈，🦋 对折变蝴蝶。",
+              "textbook_svg": "img/roadmap/math/D/2/3_tb.svg",
+              "comic_svg": "img/roadmap/math/D/2/3_comic.svg"
+            }
+          ],
+          "3": [
+            {
+              "name": "毫米分米千米",
+              "example": "例题：1 千米 = 1000 米，1 分米 = 10 厘米。",
+              "textbook": "（人教版 三年级上册·测量）尺子上 1 厘米中间每一小格长 1 毫米（1 厘米=10 毫米）；计量较长路程通常用千米，1 千米=1000 米。",
+              "comic": "🛣️ 千米是长跑冠军，毫米是蚂蚁用的尺。",
+              "textbook_svg": "img/roadmap/math/D/3/0_tb.svg",
+              "comic_svg": "img/roadmap/math/D/3/0_comic.svg"
+            },
+            {
+              "name": "长方形和正方形",
+              "example": "例题：正方形四条边相等，四个角都是直角。",
+              "textbook": "（人教版 三年级上册·长方形和正方形）长方形对边相等、有 4 个直角；正方形 4 条边都相等、也有 4 个直角。",
+              "comic": "⬜ 正方形：我四条边一样帅，直角四兄弟。",
+              "textbook_svg": "img/roadmap/math/D/3/1_tb.svg",
+              "comic_svg": "img/roadmap/math/D/3/1_comic.svg"
+            },
+            {
+              "name": "周长",
+              "example": "例题：长方形周长 = (长 + 宽) × 2",
+              "textbook": "（人教版 三年级上册·长方形和正方形）封闭图形一周的长度，是它的周长。长方形周长=(长+宽)×2。",
+              "comic": "🖼️ 相框绕一圈花边：长 + 宽 + 长 + 宽。",
+              "textbook_svg": "img/roadmap/math/D/3/2_tb.svg",
+              "comic_svg": "img/roadmap/math/D/3/2_comic.svg"
+            },
+            {
+              "name": "面积",
+              "example": "例题：正方形面积 = 边长 × 边长",
+              "textbook": "（人教版 三年级下册·面积）物体的表面或封闭图形的大小，就是它们的面积。常用的面积单位有平方厘米、平方分米、平方米。",
+              "comic": "🟦 地砖铺满地面，数格子知大小。",
+              "textbook_svg": "img/roadmap/math/D/3/3_tb.svg",
+              "comic_svg": "img/roadmap/math/D/3/3_comic.svg"
+            },
+            {
+              "name": "位置与方向",
+              "example": "例题：上北下南，左西右东。",
+              "textbook": "（人教版 三年级下册·位置与方向（一））地图通常是按上北、下南、左西、右东绘制的。",
+              "comic": "🧭 指南针指北，东西南北排排坐。",
+              "textbook_svg": "img/roadmap/math/D/3/4_tb.svg",
+              "comic_svg": "img/roadmap/math/D/3/4_comic.svg"
+            }
+          ],
+          "4": [
+            {
+              "name": "角的度量",
+              "example": "例题：直角 = 90°，平角 = 180°。",
+              "textbook": "（人教版 四年级上册·角的度量）角的计量单位是『度』，用符号『°』表示。直角=90°，平角=180°，周角=360°。",
+              "comic": "📐 量角器眯眼：这个角 90 度，正好直角！",
+              "textbook_svg": "img/roadmap/math/D/4/0_tb.svg",
+              "comic_svg": "img/roadmap/math/D/4/0_comic.svg"
+            },
+            {
+              "name": "平行四边形和梯形",
+              "example": "例题：平行四边形对边平行且相等。",
+              "textbook": "（人教版 四年级上册·平行四边形和梯形）两组对边分别平行的四边形叫平行四边形；只有一组对边平行的叫梯形。",
+              "comic": "▱ 平行四边形歪着站也平行，梯形独腿平行。",
+              "textbook_svg": "img/roadmap/math/D/4/1_tb.svg",
+              "comic_svg": "img/roadmap/math/D/4/1_comic.svg"
+            },
+            {
+              "name": "三角形",
+              "example": "例题：三角形内角和 = 180°。",
+              "textbook": "（人教版 四年级下册·三角形）由三条线段围成的图形叫三角形，三角形三个内角的和等于 180°。",
+              "comic": "🔺 三角兄三内角手拉手，凑成 180°。",
+              "textbook_svg": "img/roadmap/math/D/4/2_tb.svg",
+              "comic_svg": "img/roadmap/math/D/4/2_comic.svg"
+            },
+            {
+              "name": "图形的运动(二)",
+              "example": "例题：平移后形状、大小不变。",
+              "textbook": "（人教版 四年级下册·图形的运动（二））图形平移后，形状、大小、方向都不变，只是位置变了。",
+              "comic": "🚙 小车平移搬家，样子不变只换住址。",
+              "textbook_svg": "img/roadmap/math/D/4/3_tb.svg",
+              "comic_svg": "img/roadmap/math/D/4/3_comic.svg"
+            },
+            {
+              "name": "观察物体(二)",
+              "example": "例题：从三视图判断立体图形。",
+              "textbook": "（人教版 四年级下册·观察物体（二））从前面、上面、左面观察同一物体，能更全面认识它的形状。",
+              "comic": "🧊 三台相机拍出前、上、左三张脸。",
+              "textbook_svg": "img/roadmap/math/D/4/4_tb.svg",
+              "comic_svg": "img/roadmap/math/D/4/4_comic.svg"
+            }
+          ],
+          "5": [
+            {
+              "name": "观察物体(三)",
+              "example": "例题：根据三视图还原立体图形。",
+              "textbook": "（人教版 五年级下册·观察物体（三））根据从三个方向看到的图形，可以摆出原来的几何体。",
+              "comic": "🧊 侦探据三张照片，拼出原立方体。",
+              "textbook_svg": "img/roadmap/math/D/5/0_tb.svg",
+              "comic_svg": "img/roadmap/math/D/5/0_comic.svg"
+            },
+            {
+              "name": "长方体和正方体",
+              "example": "例题：正方体表面积 = 棱长 × 棱长 × 6",
+              "textbook": "（人教版 五年级下册·长方体和正方体）长方体有 6 个面，相对的面完全相同；正方体 6 个面都是正方形。",
+              "comic": "📦 纸盒展开六面，算表面积包礼物。",
+              "textbook_svg": "img/roadmap/math/D/5/1_tb.svg",
+              "comic_svg": "img/roadmap/math/D/5/1_comic.svg"
+            },
+            {
+              "name": "图形的运动(三)",
+              "example": "例题：旋转 90°、180°。",
+              "textbook": "（人教版 五年级下册·图形的运动（三））图形可以绕某一点旋转一定的角度，旋转后形状、大小不变。",
+              "comic": "🌀 风车绕心转 90°，花瓣换岗。",
+              "textbook_svg": "img/roadmap/math/D/5/2_tb.svg",
+              "comic_svg": "img/roadmap/math/D/5/2_comic.svg"
+            },
+            {
+              "name": "多边形面积",
+              "example": "例题：平行四边形面积 = 底 × 高",
+              "textbook": "（人教版 五年级上册·多边形的面积）平行四边形面积=底×高；三角形面积=底×高÷2；梯形面积=(上底+下底)×高÷2。",
+              "comic": "🔷 底 × 高得出面积，三角砍半。",
+              "textbook_svg": "img/roadmap/math/D/5/3_tb.svg",
+              "comic_svg": "img/roadmap/math/D/5/3_comic.svg"
+            }
+          ],
+          "6": [
+            {
+              "name": "圆",
+              "example": "例题：圆的周长 C = 2πr，面积 S = πr²",
+              "textbook": "（人教版 六年级上册·圆）圆的周长总是直径的 3 倍多一些，这个固定的比值叫做圆周率 π。C=2πr，S=πr²。",
+              "comic": "⭕ 圆滚滚：我周长 2πr，面积是 πr²。",
+              "textbook_svg": "img/roadmap/math/D/6/0_tb.svg",
+              "comic_svg": "img/roadmap/math/D/6/0_comic.svg"
+            },
+            {
+              "name": "扇形",
+              "example": "例题：扇形是圆的一部分。",
+              "textbook": "（人教版 六年级上册·圆）一条弧和经过这条弧两端的两条半径所围成的图形，叫做扇形。",
+              "comic": "🍕 扇形像切下的披萨角，两条半径夹一条弧。",
+              "textbook_svg": "img/roadmap/math/D/6/1_tb.svg",
+              "comic_svg": "img/roadmap/math/D/6/1_comic.svg"
+            },
+            {
+              "name": "圆柱与圆锥",
+              "example": "例题：圆柱体积 = 底面积 × 高",
+              "textbook": "（人教版 六年级下册·圆柱与圆锥）圆柱两个底面是完全相同的圆；圆锥体积 = 1/3×底面积×高。",
+              "comic": "🥫 圆柱立着稳，🍦 圆锥尖顶，体积只占圆柱三分之一。",
+              "textbook_svg": "img/roadmap/math/D/6/2_tb.svg",
+              "comic_svg": "img/roadmap/math/D/6/2_comic.svg"
+            },
+            {
+              "name": "比例尺",
+              "example": "例题：比例尺 1 : 50000",
+              "textbook": "（人教版 六年级下册·比例）比例尺 = 图上距离:实际距离，例如 1:5000000。",
+              "comic": "🗺️ 缩小五万倍，整座城市装进一张纸。",
+              "textbook_svg": "img/roadmap/math/D/6/3_tb.svg",
+              "comic_svg": "img/roadmap/math/D/6/3_comic.svg"
+            }
+          ]
+        }
+      },
+      {
+        "code": "E",
+        "name": "量单位",
+        "grades": {
+          "1": [
+            {
+              "name": "人民币(元角分)",
+              "example": "例题：1 元 = 10 角，1 角 = 10 分",
+              "textbook": "（人教版 一年级下册·认识人民币）元、角、分是人民币的单位，1 元=10 角，1 角=10 分。",
+              "comic": "💴 1 元换 10 个 1 角，1 角换 10 个 1 分。",
+              "textbook_svg": "img/roadmap/math/E/1/0_tb.svg",
+              "comic_svg": "img/roadmap/math/E/1/0_comic.svg"
+            },
+            {
+              "name": "钟表(时、分、秒)",
+              "example": "例题：1 时 = 60 分，1 分 = 60 秒",
+              "textbook": "（人教版 一年级上册·认识钟表）分针指向 12，时针指向 7，就是 7 时。",
+              "comic": "⏰ 分针跑一圈 60 分，时针才走 1 大格。",
+              "textbook_svg": "img/roadmap/math/E/1/1_tb.svg",
+              "comic_svg": "img/roadmap/math/E/1/1_comic.svg"
+            }
+          ],
+          "2": [
+            {
+              "name": "长度单位",
+              "example": "例题：1 米 = 100 厘米",
+              "textbook": "（人教版 二年级上册·长度单位）量较短物体用厘米，较长用米，1 米=100 厘米。",
+              "comic": "📏 米和厘米比身高：1 米 = 100 厘米。",
+              "textbook_svg": "img/roadmap/math/E/2/0_tb.svg",
+              "comic_svg": "img/roadmap/math/E/2/0_comic.svg"
+            },
+            {
+              "name": "质量单位(克、千克、吨)",
+              "example": "例题：1 千克 = 1000 克，1 吨 = 1000 千克",
+              "textbook": "（人教版 二年级下册·克和千克）表示较轻物品的质量用『克』(g)，较重用『千克』(kg)，1 千克=1000 克。",
+              "comic": "⚖️ 1 千克 = 1000 克，🐘 1 吨 = 1000 千克。",
+              "textbook_svg": "img/roadmap/math/E/2/1_tb.svg",
+              "comic_svg": "img/roadmap/math/E/2/1_comic.svg"
+            }
+          ],
+          "3": [
+            {
+              "name": "时、分、秒",
+              "example": "例题：秒针走 1 圈是 60 秒 = 1 分",
+              "textbook": "（人教版 三年级上册·时、分、秒）钟面上最长最细的针是秒针，走 1 小格是 1 秒，1 分=60 秒。",
+              "comic": "⏱️ 秒针飞快跑，60 秒才换分针走 1 格。",
+              "textbook_svg": "img/roadmap/math/E/3/0_tb.svg",
+              "comic_svg": "img/roadmap/math/E/3/0_comic.svg"
+            },
+            {
+              "name": "毫米分米千米",
+              "example": "例题：1 厘米 = 10 毫米",
+              "textbook": "（人教版 三年级上册·测量）1 厘米=10 毫米，1 分米=10 厘米，1 千米=1000 米。",
+              "comic": "📏 毫米是厘米的小跟班，10 个才顶 1 厘米。",
+              "textbook_svg": "img/roadmap/math/E/3/1_tb.svg",
+              "comic_svg": "img/roadmap/math/E/3/1_comic.svg"
+            },
+            {
+              "name": "吨",
+              "example": "例题：1 吨 = 1000 千克",
+              "textbook": "（人教版 三年级上册·测量）计量较重或大宗物品的质量，通常用『吨』(t)，1 吨=1000 千克。",
+              "comic": "🚚 大卡车载重用吨，1000 千克才 1 吨。",
+              "textbook_svg": "img/roadmap/math/E/3/2_tb.svg",
+              "comic_svg": "img/roadmap/math/E/3/2_comic.svg"
+            },
+            {
+              "name": "面积单位",
+              "example": "例题：1 平方米 = 100 平方分米",
+              "textbook": "（人教版 三年级下册·面积）边长 1 厘米的正方形，面积是 1 平方厘米。",
+              "comic": "🟦 地砖平方家族：厘米 < 分米 < 米。",
+              "textbook_svg": "img/roadmap/math/E/3/3_tb.svg",
+              "comic_svg": "img/roadmap/math/E/3/3_comic.svg"
+            }
+          ],
+          "4": [
+            {
+              "name": "公顷和平方千米",
+              "example": "例题：1 公顷 = 10000 平方米",
+              "textbook": "（人教版 四年级上册·公顷和平方千米）边长是 100 米的正方形，面积是 1 公顷，1 公顷=10000 平方米。",
+              "comic": "🏞️ 公顷是操场大小，平方千米能装下整个公园。",
+              "textbook_svg": "img/roadmap/math/E/4/0_tb.svg",
+              "comic_svg": "img/roadmap/math/E/4/0_comic.svg"
+            }
+          ],
+          "5": [
+            {
+              "name": "体积单位",
+              "example": "例题：1 立方米 = 1000 立方分米",
+              "textbook": "（人教版 五年级下册·长方体和正方体）常用的体积单位有立方厘米、立方分米、立方米。",
+              "comic": "📦 体积三兄弟：厘米³ < 分米³ < 米³。",
+              "textbook_svg": "img/roadmap/math/E/5/0_tb.svg",
+              "comic_svg": "img/roadmap/math/E/5/0_comic.svg"
+            },
+            {
+              "name": "容积单位",
+              "example": "例题：1 升 = 1000 毫升",
+              "textbook": "（人教版 五年级下册·长方体和正方体）计量液体体积常用升和毫升，1 升=1 立方分米。",
+              "comic": "🥤 可乐瓶标毫升，1 升 = 1000 毫升。",
+              "textbook_svg": "img/roadmap/math/E/5/1_tb.svg",
+              "comic_svg": "img/roadmap/math/E/5/1_comic.svg"
+            }
+          ],
+          "6": [
+            {
+              "name": "利率和税率",
+              "example": "例题：利息 = 本金 × 利率 × 时间",
+              "textbook": "（人教版 六年级下册·百分数）存入银行的钱叫本金，多得的部分叫利息；利息=本金×利率×存期。",
+              "comic": "🏦 存 100 元年利率 2%，一年利息 2 元。",
+              "textbook_svg": "img/roadmap/math/E/6/0_tb.svg",
+              "comic_svg": "img/roadmap/math/E/6/0_comic.svg"
+            },
+            {
+              "name": "百分率",
+              "example": "例题：发芽率 = 发芽数 ÷ 总数 × 100%",
+              "textbook": "（人教版 六年级上册·百分数）发芽率 = 发芽种子数÷试验种子数×100%。",
+              "comic": "🌱 100 粒种子 90 粒发芽，发芽率 90%。",
+              "textbook_svg": "img/roadmap/math/E/6/1_tb.svg",
+              "comic_svg": "img/roadmap/math/E/6/1_comic.svg"
+            }
+          ]
+        }
+      },
+      {
+        "code": "F",
+        "name": "代数",
+        "grades": {
+          "1": [],
+          "2": [],
+          "3": [
+            {
+              "name": "混合运算",
+              "example": "例题：24 ÷ 3 + 5 = 13",
+              "textbook": "（人教版 二年级下册·混合运算）没有括号的算式里，先算乘除，后算加减。",
+              "comic": "🧮 先除后加：24÷3=8，8+5=13。",
+              "textbook_svg": "img/roadmap/math/F/3/0_tb.svg",
+              "comic_svg": "img/roadmap/math/F/3/0_comic.svg"
+            },
+            {
+              "name": "带括号的四则运算",
+              "example": "例题：(12 + 8) × 2 = 40",
+              "textbook": "（人教版 二年级下册·混合运算）算式里有括号的，要先算括号里面的。",
+              "comic": "📦 括号像优先通行证：先算 (12+8)=20 再 ×2。",
+              "textbook_svg": "img/roadmap/math/F/3/1_tb.svg",
+              "comic_svg": "img/roadmap/math/F/3/1_comic.svg"
+            }
+          ],
+          "4": [
+            {
+              "name": "运算定律",
+              "example": "例题：(a + b) + c = a + (b + c) 加法结合律",
+              "textbook": "（人教版 四年级下册·运算定律）三个数相加，先把前两个数相加，或先把后两个数相加，和不变，这叫加法结合律。",
+              "comic": "🔗 加法抱团：先加谁结果都一样。",
+              "textbook_svg": "img/roadmap/math/F/4/0_tb.svg",
+              "comic_svg": "img/roadmap/math/F/4/0_comic.svg"
+            },
+            {
+              "name": "用字母表示数",
+              "example": "例题：a + b = b + a",
+              "textbook": "（人教版 五年级上册·简易方程）可以用字母表示数，如小红 a 岁，爸爸比她大 28 岁，爸爸是 a+28 岁。",
+              "comic": "🔤 字母 a、b 来替数字站岗。",
+              "textbook_svg": "img/roadmap/math/F/4/1_tb.svg",
+              "comic_svg": "img/roadmap/math/F/4/1_comic.svg"
+            }
+          ],
+          "5": [
+            {
+              "name": "简易方程",
+              "example": "例题：x + 3 = 8，则 x = 5",
+              "textbook": "（人教版 五年级上册·简易方程）像 100+x=250 这样含有未知数的等式，叫做方程。",
+              "comic": "❓ x 藏在等式里：x+3=8 → x=5 现形。",
+              "textbook_svg": "img/roadmap/math/F/5/0_tb.svg",
+              "comic_svg": "img/roadmap/math/F/5/0_comic.svg"
+            },
+            {
+              "name": "解方程",
+              "example": "例题：2x = 10 → x = 5",
+              "textbook": "（人教版 五年级上册·简易方程）使方程左右两边相等的未知数的值，叫做方程的解。",
+              "comic": "🔍 解方程像破案：2x=10 → x=5。",
+              "textbook_svg": "img/roadmap/math/F/5/1_tb.svg",
+              "comic_svg": "img/roadmap/math/F/5/1_comic.svg"
+            },
+            {
+              "name": "用方程解决问题",
+              "example": "例题：设未知数 x，列方程求解。",
+              "textbook": "（人教版 五年级上册·简易方程）找出等量关系，设未知数，列方程并解答。",
+              "comic": "🕵️ 列方程：未知数 x 自首后真相大白。",
+              "textbook_svg": "img/roadmap/math/F/5/2_tb.svg",
+              "comic_svg": "img/roadmap/math/F/5/2_comic.svg"
+            }
+          ],
+          "6": [
+            {
+              "name": "比例",
+              "example": "例题：x : 2 = 3 : 6 → x = 1",
+              "textbook": "（人教版 六年级下册·比例）解比例要根据比例的基本性质：两外项之积等于两内项之积。",
+              "comic": "⚖️ 比例天平：x×6 = 2×3 → x = 1。",
+              "textbook_svg": "img/roadmap/math/F/6/0_tb.svg",
+              "comic_svg": "img/roadmap/math/F/6/0_comic.svg"
+            },
+            {
+              "name": "正比例和反比例",
+              "example": "例题：速度一定，路程与时间成正比例。",
+              "textbook": "（人教版 六年级下册·比例）两种量比值一定，成正比例关系；乘积一定，成反比例关系。",
+              "comic": "🚗 匀速行驶，时间翻倍路程也翻倍 → 正比。",
+              "textbook_svg": "img/roadmap/math/F/6/1_tb.svg",
+              "comic_svg": "img/roadmap/math/F/6/1_comic.svg"
+            },
+            {
+              "name": "用比例解决问题",
+              "example": "例题：用比例尺解实际距离。",
+              "textbook": "（人教版 六年级下册·比例）判断成正、反比例后，用比例关系列式解答实际问题。",
+              "comic": "🗺️ 比例当尺，图上量一量算出现实距离。",
+              "textbook_svg": "img/roadmap/math/F/6/2_tb.svg",
+              "comic_svg": "img/roadmap/math/F/6/2_comic.svg"
+            }
+          ]
+        }
+      },
+      {
+        "code": "G",
+        "name": "统计",
+        "grades": {
+          "1": [
+            {
+              "name": "分类与整理",
+              "example": "例题：按颜色把气球分类计数。",
+              "textbook": "（人教版 一年级下册·分类与整理）可以按颜色分、按形状分，再用表格或图把结果表示出来。",
+              "comic": "🎈 红气球一堆、蓝气球一堆，数数各多少。",
+              "textbook_svg": "img/roadmap/math/G/1/0_tb.svg",
+              "comic_svg": "img/roadmap/math/G/1/0_comic.svg"
+            },
+            {
+              "name": "简单统计表",
+              "example": "例题：用表格记录喜欢的水果。",
+              "textbook": "（人教版 二年级上册·数据收集整理）把调查得到的数据用表格记录下来，这样的表叫统计表。",
+              "comic": "📊 水果投票表：苹果 5、梨 3、香蕉 4。",
+              "textbook_svg": "img/roadmap/math/G/1/1_tb.svg",
+              "comic_svg": "img/roadmap/math/G/1/1_comic.svg"
+            }
+          ],
+          "2": [
+            {
+              "name": "数据收集整理",
+              "example": "例题：投票选最喜欢的图书。",
+              "textbook": "（人教版 二年级上册·数据收集整理）订校服选颜色，可以用举手、画『正』字的方法收集数据。",
+              "comic": "🙋 举手投票，统计员画正字。",
+              "textbook_svg": "img/roadmap/math/G/2/0_tb.svg",
+              "comic_svg": "img/roadmap/math/G/2/0_comic.svg"
+            }
+          ],
+          "3": [
+            {
+              "name": "复式统计表",
+              "example": "例题：男、女生的爱好各统计。",
+              "textbook": "（人教版 三年级下册·复式统计表）把几个有联系的单式统计表合并成一个复式统计表，看起来更清楚。",
+              "comic": "📋 男女两表合并，一看就懂。",
+              "textbook_svg": "img/roadmap/math/G/3/0_tb.svg",
+              "comic_svg": "img/roadmap/math/G/3/0_comic.svg"
+            },
+            {
+              "name": "条形统计图",
+              "example": "例题：用直条长短表示数量。",
+              "textbook": "（人教版 二年级上册·数据收集整理）用直条的长短表示数量的多少，这样的图叫条形统计图。",
+              "comic": "📊 直条高矮比胜负，一眼见高低。",
+              "textbook_svg": "img/roadmap/math/G/3/1_tb.svg",
+              "comic_svg": "img/roadmap/math/G/3/1_comic.svg"
+            }
+          ],
+          "4": [
+            {
+              "name": "平均数",
+              "example": "例题：(90 + 80 + 70) ÷ 3 = 80",
+              "textbook": "（人教版 四年级下册·平均数与条形统计图）平均数 = 总数÷总份数，能反映一组数据的整体水平。",
+              "comic": "🎯 三科分数求和除以 3，得平均分 80。",
+              "textbook_svg": "img/roadmap/math/G/4/0_tb.svg",
+              "comic_svg": "img/roadmap/math/G/4/0_comic.svg"
+            },
+            {
+              "name": "复式条形统计图",
+              "example": "例题：两组数据并列直条对比。",
+              "textbook": "（人教版 四年级下册·平均数与条形统计图）把两组数据画在同一个条形统计图里，便于对比。",
+              "comic": "📊 两根直条肩并肩，两组数据比高低。",
+              "textbook_svg": "img/roadmap/math/G/4/1_tb.svg",
+              "comic_svg": "img/roadmap/math/G/4/1_comic.svg"
+            }
+          ],
+          "5": [
+            {
+              "name": "折线统计图",
+              "example": "例题：用折线看气温变化。",
+              "textbook": "（人教版 五年级下册·折线统计图）折线统计图不但能看出数量的多少，还能清楚地看出数量的增减变化。",
+              "comic": "📈 折线起伏像山路，看出上升趋势。",
+              "textbook_svg": "img/roadmap/math/G/5/0_tb.svg",
+              "comic_svg": "img/roadmap/math/G/5/0_comic.svg"
+            },
+            {
+              "name": "众数、中位数",
+              "example": "例题：1, 2, 2, 3 → 众数 2，中位数 2",
+              "textbook": "（人教版 五年级下册·众数）一组数据中出现次数最多的数叫众数；按大小排在最中间的叫中位数。",
+              "comic": "🔢 2 出现最多当众数，站中间当中位数。",
+              "textbook_svg": "img/roadmap/math/G/5/1_tb.svg",
+              "comic_svg": "img/roadmap/math/G/5/1_comic.svg"
+            }
+          ],
+          "6": [
+            {
+              "name": "扇形统计图",
+              "example": "例题：用扇形表示各部分占比。",
+              "textbook": "（人教版 六年级上册·扇形统计图）用整个圆表示总数，圆内各扇形大小表示各部分占总数的百分数。",
+              "comic": "🥧 圆饼切开，每块是一部分占比。",
+              "textbook_svg": "img/roadmap/math/G/6/0_tb.svg",
+              "comic_svg": "img/roadmap/math/G/6/0_comic.svg"
+            },
+            {
+              "name": "百分数统计",
+              "example": "例题：各部分百分数之和为 100%。",
+              "textbook": "（人教版 六年级上册·扇形统计图）扇形统计图中，各部分百分比之和等于 100%。",
+              "comic": "🥧 所有切片拼回整个饼 = 100%。",
+              "textbook_svg": "img/roadmap/math/G/6/1_tb.svg",
+              "comic_svg": "img/roadmap/math/G/6/1_comic.svg"
+            }
+          ]
+        }
+      },
+      {
+        "code": "H",
+        "name": "数学广角",
+        "grades": {
+          "1": [
+            {
+              "name": "找规律",
+              "example": "例题：1, 3, 5, 7, … 下一个是 9",
+              "textbook": "（人教版 一年级下册·找规律）观察颜色、形状、数字的排列，找出重复出现的规律，如红黄蓝、红黄蓝……",
+              "comic": "🔢 奇数排队：1, 3, 5, 7, 9……",
+              "textbook_svg": "img/roadmap/math/H/1/0_tb.svg",
+              "comic_svg": "img/roadmap/math/H/1/0_comic.svg"
+            },
+            {
+              "name": "搭配(一)",
+              "example": "例题：2 件上衣 × 3 条裤子 = 6 种搭配",
+              "textbook": "（人教版 二年级上册·数学广角—搭配（一））2 件上衣和 3 件下装，用连线法可得 2×3=6 种不同穿法。",
+              "comic": "👕👖 2 衣配 3 裤，2×3 = 6 套穿搭。",
+              "textbook_svg": "img/roadmap/math/H/1/1_tb.svg",
+              "comic_svg": "img/roadmap/math/H/1/1_comic.svg"
+            }
+          ],
+          "2": [
+            {
+              "name": "推理",
+              "example": "例题：甲不是红，乙是红，则甲是蓝。",
+              "textbook": "（人教版 二年级下册·数学广角—推理）有三本书各拿一本，已知小红拿语文、小丽拿的不是数学，可推知小丽拿的是品德。",
+              "comic": "🕵️ 红蓝帽子推理：乙红则甲蓝。",
+              "textbook_svg": "img/roadmap/math/H/2/0_tb.svg",
+              "comic_svg": "img/roadmap/math/H/2/0_comic.svg"
+            },
+            {
+              "name": "搭配(二)",
+              "example": "例题：3 个数字组两位数不重复。",
+              "textbook": "（人教版 二年级下册·数学广角—搭配（二））用 1、2、3 组成不重复数字的两位数，是排列问题，要注意顺序。",
+              "comic": "🔢 1、2、3 排两位数，6 种不重样。",
+              "textbook_svg": "img/roadmap/math/H/2/1_tb.svg",
+              "comic_svg": "img/roadmap/math/H/2/1_comic.svg"
+            }
+          ],
+          "3": [
+            {
+              "name": "集合",
+              "example": "例题：会游泳 5 人、会骑车 4 人，共 8 人（重叠 1）。",
+              "textbook": "（人教版 三年级上册·数学广角—集合）参加语文、数学小组的名单有重叠，用韦恩图（集合圈）表示既参加两样的同学。",
+              "comic": "⭕ 两个圈重叠处，是既会游又会骑的人。",
+              "textbook_svg": "img/roadmap/math/H/3/0_tb.svg",
+              "comic_svg": "img/roadmap/math/H/3/0_comic.svg"
+            },
+            {
+              "name": "植树问题",
+              "example": "例题：10 米隔 2 米种，两端都种 = 6 棵",
+              "textbook": "（人教版 五年级上册·数学广角—植树问题）在一条线段上两端都栽：棵数 = 间隔数 + 1。",
+              "comic": "🌳 10 米路每 2 米一棵，6 棵树排排站。",
+              "textbook_svg": "img/roadmap/math/H/3/1_tb.svg",
+              "comic_svg": "img/roadmap/math/H/3/1_comic.svg"
+            },
+            {
+              "name": "搭配问题",
+              "example": "例题：午餐荤素搭配组合数。",
+              "textbook": "（人教版 二年级上册·数学广角—搭配（一））分类搭配可用乘法原理，荤 3 素 4 则有 3×4=12 种搭配。",
+              "comic": "🍱 荤 3 素 4，3×4 = 12 种午饭。",
+              "textbook_svg": "img/roadmap/math/H/3/2_tb.svg",
+              "comic_svg": "img/roadmap/math/H/3/2_comic.svg"
+            }
+          ],
+          "4": [
+            {
+              "name": "优化问题",
+              "example": "例题：烙饼最少时间：3 张饼 9 分钟。",
+              "textbook": "（人教版 四年级上册·数学广角—优化）烙饼问题：每次最多烙 2 张、每面 3 分钟，3 张饼最少 9 分钟，要合理安排顺序。",
+              "comic": "🥞 烙饼翻面有窍门，省时最优。",
+              "textbook_svg": "img/roadmap/math/H/4/0_tb.svg",
+              "comic_svg": "img/roadmap/math/H/4/0_comic.svg"
+            },
+            {
+              "name": "植树问题(进阶)",
+              "example": "例题：圆形植树：棵数 = 间隔数",
+              "textbook": "（人教版 五年级上册·数学广角—植树问题）在封闭图形（如圆形）上植树，棵数 = 间隔数。",
+              "comic": "⭕ 圆形花坛种树，棵数 = 间隔数。",
+              "textbook_svg": "img/roadmap/math/H/4/1_tb.svg",
+              "comic_svg": "img/roadmap/math/H/4/1_comic.svg"
+            }
+          ],
+          "5": [
+            {
+              "name": "找次品",
+              "example": "例题：9 个球天平找 1 个次品，2 次。",
+              "textbook": "（人教版 五年级下册·数学广角—找次品）9 个零件中有 1 个重一些的次品，用天平称，尽量平均分成 3 份，至少 2 次能保证找出。",
+              "comic": "⚖️ 9 球分 3 组，天平两称锁定次品。",
+              "textbook_svg": "img/roadmap/math/H/5/0_tb.svg",
+              "comic_svg": "img/roadmap/math/H/5/0_comic.svg"
+            },
+            {
+              "name": "抽屉原理",
+              "example": "例题：5 苹果放 4 抽屉，必有一抽屉 ≥ 2。",
+              "textbook": "（人教版 六年级下册·数学广角—抽屉原理）4 支笔放进 3 个笔筒，不管怎么放，总有一个笔筒至少有 2 支笔。",
+              "comic": "🍎 5 苹果进 4 抽屉，总有一个抽屉挤 2 个。",
+              "textbook_svg": "img/roadmap/math/H/5/1_tb.svg",
+              "comic_svg": "img/roadmap/math/H/5/1_comic.svg"
+            }
+          ],
+          "6": [
+            {
+              "name": "鸽巢原理",
+              "example": "例题：13 人必有 2 人生日同月。",
+              "textbook": "（人教版 六年级下册·数学广角—鸽巢问题）5 只鸽子飞进 4 个鸽巢，总有一个鸽巢至少飞进 2 只鸽子。",
+              "comic": "🕊️ 13 人 12 个月，必有两人生日同月。",
+              "textbook_svg": "img/roadmap/math/H/6/0_tb.svg",
+              "comic_svg": "img/roadmap/math/H/6/0_comic.svg"
+            },
+            {
+              "name": "数与形",
+              "example": "例题：1 + 3 + 5 + … + (2n-1) = n²",
+              "textbook": "（人教版 六年级上册·数学广角—数与形）1+3+5+…+(2n-1)=n²，数与形结合，以形助数。",
+              "comic": "🔺 奇数累加拼成正方形，和是平方数。",
+              "textbook_svg": "img/roadmap/math/H/6/1_tb.svg",
+              "comic_svg": "img/roadmap/math/H/6/1_comic.svg"
+            },
+            {
+              "name": "自行车里的数学",
+              "example": "例题：前后齿轮比决定车速。",
+              "textbook": "（人教版 六年级下册·数学广角—自行车里的数学）前后齿轮的齿数影响蹬一圈走的路程：前齿轮齿数×圈数 = 后齿轮齿数×转数。",
+              "comic": "🚲 前齿轮大、后齿轮小，蹬一圈跑得远。",
+              "textbook_svg": "img/roadmap/math/H/6/2_tb.svg",
+              "comic_svg": "img/roadmap/math/H/6/2_comic.svg"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "chinese": {
+    "name": "语文",
+    "lines": [
+      {
+        "code": "P1",
+        "name": "识字写字",
+        "grades": {
+          "1": [
+            {
+              "name": "汉语拼音(声母韵母)",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "常用汉字约300",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "笔画笔顺",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "偏旁部首",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "2": [
+            {
+              "name": "常用汉字约750",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "部首查字法",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "音序查字法",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "多音字",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "3": [
+            {
+              "name": "常用汉字约1600",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "形近字",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "同音字",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "易错字",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "4": [
+            {
+              "name": "常用汉字约2000",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "多义字",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "成语积累",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "5": [
+            {
+              "name": "常用汉字约2300",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "易错字辨析",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "书法(软笔)",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "6": [
+            {
+              "name": "常用汉字约2500",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "易错字归类",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "词语归类",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ]
+        }
+      },
+      {
+        "code": "P2",
+        "name": "背诵积累",
+        "grades": {
+          "1": [
+            {
+              "name": "古诗(咏鹅、静夜思等)",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "儿歌童谣",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "日积月累",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "2": [
+            {
+              "name": "古诗(村居、绝句等)",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "名言警句",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "日积月累",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "3": [
+            {
+              "name": "古诗(所见、山行等)",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "文言文初识(司马光)",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "日积月累",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "4": [
+            {
+              "name": "古诗(浪淘沙等)",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "文言文(精卫填海、王戎不取道旁李)",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "名言",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "5": [
+            {
+              "name": "古诗(示儿、枫桥夜泊等)",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "文言文(少年中国说节选)",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "名言警句",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "6": [
+            {
+              "name": "古诗(七律·长征、春夜喜雨等)",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "文言文(伯牙鼓琴、书戴嵩画牛)",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "日积月累",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ]
+        }
+      },
+      {
+        "code": "P3",
+        "name": "阅读",
+        "grades": {
+          "1": [
+            {
+              "name": "读懂一段话",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "看图说话",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "童话与寓言",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "2": [
+            {
+              "name": "段落理解",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "默读",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "提取文本信息",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "3": [
+            {
+              "name": "自然段与中心",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "预测阅读",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "童话与寓言",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "4": [
+            {
+              "name": "把握主要内容",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "提问阅读",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "批注阅读",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "5": [
+            {
+              "name": "快速阅读",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "说明文阅读",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "记叙文阅读",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "古诗词鉴赏",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "6": [
+            {
+              "name": "小说阅读",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "散文阅读",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "非连续性文本",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "阅读策略综合运用",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ]
+        }
+      },
+      {
+        "code": "P4",
+        "name": "习作",
+        "grades": {
+          "1": [
+            {
+              "name": "看图写话",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "写完整句子",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "2": [
+            {
+              "name": "看图写话",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "写日记",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "3": [
+            {
+              "name": "写人习作",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "写事习作",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "写景习作",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "想象习作",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "4": [
+            {
+              "name": "游记习作",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "观察日记",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "童话习作",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "5": [
+            {
+              "name": "说明文习作",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "读后感",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "缩写",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "审题与立意",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "6": [
+            {
+              "name": "写人记事",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "想象习作",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "应用文",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "修改习作",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ]
+        }
+      },
+      {
+        "code": "P5",
+        "name": "口语交际",
+        "grades": {
+          "1": [
+            {
+              "name": "听故事讲故事",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "一起做游戏",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "2": [
+            {
+              "name": "注意说话语气",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "推荐一部动画片",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "3": [
+            {
+              "name": "请教",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "劝说",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "我的暑假生活",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "4": [
+            {
+              "name": "安慰",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "转述",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "讲历史人物故事",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "5": [
+            {
+              "name": "我最喜欢的人物形象",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "即兴发言",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ],
+          "6": [
+            {
+              "name": "演讲",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "辩论",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            },
+            {
+              "name": "同读一本书",
+              "example": "",
+              "textbook": "",
+              "comic": ""
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

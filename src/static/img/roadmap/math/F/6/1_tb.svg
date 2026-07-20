@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160">
+<rect width="240" height="160" fill="#ffffff"/><line x1="50" y1="120" x2="190" y2="120" stroke="#333" stroke-width="1"/><line x1="50" y1="120" x2="50" y2="40" stroke="#333" stroke-width="1"/><polyline points="50,120 190,40" fill="none" stroke="#333" stroke-width="1.5"/><text x="120" y="134" text-anchor="middle" font-size="10" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">比值一定 -> 正比</text>
+</svg>

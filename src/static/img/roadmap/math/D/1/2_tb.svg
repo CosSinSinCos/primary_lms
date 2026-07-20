@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160">
+<rect width="240" height="160" fill="#ffffff"/><rect x="98" y="62" width="44" height="40" rx="2" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><text x="120" y="54" text-anchor="middle" font-size="12" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">上</text><text x="120" y="118" text-anchor="middle" font-size="12" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">下</text><text x="78" y="86" text-anchor="middle" font-size="12" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">左</text><text x="166" y="86" text-anchor="middle" font-size="12" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">右</text><text x="120" y="138" text-anchor="middle" font-size="10" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">前 后 也别忘</text>
+</svg>

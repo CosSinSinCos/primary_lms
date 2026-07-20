@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}错题集 · 小学自学系统{% endblock %}
+{% block content %}
+<div class="page-head">
+  <h1>错题集</h1>
+  <a class="btn" href="{{ url_for('errors_new') }}">+ 新增</a>
+</div>
+
+<form class="filter" method="get">
+  <select name="child_id">
+    <option value="">全部孩子</option>
+    {% for cid, cname in children %}
+      <option value="{{ cid }}" {% if child_id == cid %}selected{% endif %}>{{ cname }}</option>
+    {% endfor %}
+  </select>
+  <select name="subject">
+    <option value="">全部科目</option>
+    <option value="math" {% if subject == 'math' %}selected{% endif %}>数学</option>
+    <option value="chinese" {% if subject == 'chinese' %}selected{% endif %}>语文</option>
+  </select>
+  <select name="knowledge_line">
+    <option value="">全部知识线</option>
+    {% set opts = knowledge_lines.get(subject, []) if subject else knowledge_lines.get('math', []) + knowledge_lines.get('chinese', []) %}
+    {% for code, name in opts %}
+      <option value="{{ code }}" {% if knowledge_line == code %}selected{% endif %}>{{ code }} · {{ name }}</option>
+    {% endfor %}
+  </select>
+  <button type="submit" class="btn btn-sm">筛选</button>
+  <a class="btn btn-ghost btn-sm" href="{{ url_for('errors_list') }}">重置</a>
+</form>
+
+{% if knowledge_line %}
+<div class="tip">
+  🗺️ 正在查看知识线 <b>{{ knowledge_line }}</b> 的错题。
+  <a href="{{ url_for('roadmap', subject=subject or 'math') }}">返回知识点导图</a>
+</div>
+{% endif %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>孩子</th><th>科目</th><th>年级</th><th>单元</th>
+      <th>知识线</th><th>节点</th><th>错误类型</th>
+      <th>熟练度</th><th>下次复习</th><th>状态</th><th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for e in errors %}
+    <tr {% if e.stubborn %}class="stubborn"{% endif %}>
+      <td>{{ child_name(e.child_id) }}</td>
+      <td>{{ '数学' if e.subject == 'math' else '语文' }}</td>
+      <td>{{ e.grade }}</td>
+      <td>{{ e.unit or '—' }}</td>
+      <td>{{ e.knowledge_line }}</td>
+      <td>{{ e.knowledge_node or '—' }}</td>
+      <td>{{ e.error_type }}</td>
+      <td class="stars">{{ '★' * e.proficiency }}{{ '☆' * (5 - e.proficiency) }}</td>
+      <td>{{ e.next_review_date }}</td>
+      <td>{% if e.stubborn %}<span class="tag tag-red">顽固</span>{% endif %}</td>
+      <td class="ops">
+        <a href="{{ url_for('errors_edit', eid=e.id) }}">编辑</a>
+        <form method="post" action="{{ url_for('errors_delete', eid=e.id) }}" onsubmit="return confirm('确认删除？')">
+          <button type="submit" class="link-btn">删除</button>
+        </form>
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="11" class="empty">暂无错题，先去「+ 新增」一条吧</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

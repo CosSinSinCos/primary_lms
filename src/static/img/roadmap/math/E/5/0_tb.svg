@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160">
+<rect width="240" height="160" fill="#ffffff"/><rect x="80" y="60" width="40" height="40" rx="2" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><rect x="95" y="45" width="40" height="40" rx="2" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><text x="120" y="124" text-anchor="middle" font-size="11" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">cm3 / dm3 / m3</text>
+</svg>

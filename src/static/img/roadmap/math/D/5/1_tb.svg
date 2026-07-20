@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160">
+<rect width="240" height="160" fill="#ffffff"/><polygon points="60,60 84,50 114,60 90,70" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><polygon points="60,60 60,92 90,102 90,70" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><polygon points="90,70 114,60 114,92 90,102" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><polygon points="140,60 164,50 194,60 170,70" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><polygon points="140,60 140,92 170,102 170,70" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><polygon points="170,70 194,60 194,92 170,102" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><text x="120" y="128" text-anchor="middle" font-size="10" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">长方体 / 正方体</text>
+</svg>

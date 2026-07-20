@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160">
+<rect width="240" height="160" fill="#ffffff"/><polyline points="70,100 150,50 180,100" fill="none" stroke="#333" stroke-width="1.5"/><text x="110" y="116" text-anchor="middle" font-size="10" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">一个顶点，两条边</text>
+</svg>

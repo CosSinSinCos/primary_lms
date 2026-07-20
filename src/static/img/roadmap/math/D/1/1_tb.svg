@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160">
+<rect width="240" height="160" fill="#ffffff"/><circle cx="60" cy="70" r="18" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><polygon points="100,55 134,55 117,90" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><rect x="150" y="52" width="32" height="32" rx="2" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><rect x="58" y="110" width="50" height="22" rx="2" fill="#eef3f7" stroke="#333" stroke-width="1.5"/><text x="120" y="148" text-anchor="middle" font-size="9" fill="#333" font-family="PingFang SC, Microsoft YaHei, sans-serif">圆 三角 正方 长方</text>
+</svg>

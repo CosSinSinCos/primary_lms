@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}文章背诵 · 小学自学系统{% endblock %}
+{% block content %}
+
+<script id="recite-data" type="application/json">{{ poems | tojson }}</script>
+
+<div class="page-head">
+  <h1>语文 · 必背诗词与文章</h1>
+  <p class="muted">点一篇目，黑板就背这篇并讲作者与来历（纵轴=体裁，横轴=年级）。</p>
+</div>
+
+<section id="board" class="board-wrap" aria-live="polite">
+  <div class="blackboard">
+    <div id="board-empty" class="board-empty">
+      👆 点下面的篇目，开始今天的一课～
+    </div>
+    <div id="board-content" class="board-content" hidden>
+      <div class="board-lesson-tag" id="board-tag">📜 背诵</div>
+      <h2 id="board-title" class="board-title"></h2>
+      <div id="board-sections"></div>
+    </div>
+  </div>
+</section>
+
+<div id="sec-bei">
+  <h2 class="sec-heading">📜 必背诗词与文章（纵轴=体裁，横轴=年级）</h2>
+  <div class="cn-grid-hint">纵轴是<b>体裁</b>（唐诗 / 宋词 / 古文 / 现代文），横轴是<b>年级</b>；每个格子是该“体裁 + 年级”下要背诵的篇目。点篇目看黑板原文与简析。</div>
+  <div class="recite-grid">
+    <div class="recite-corner"></div>
+    {% for g in recite_grades %}
+    <div class="recite-col-head">{{ g }}年级</div>
+    {% endfor %}
+    {% for cat in recite_cats %}
+    <div class="recite-row-head">{{ cat }}</div>
+    {% for g in recite_grades %}
+    <div class="recite-cell">
+      {% set items = recite_grid[cat][g] %}
+      {% if items %}
+        {% for p in items %}
+        <button type="button" class="poem-chip" data-id="{{ p.id }}" onclick="showPoem(this)">
+          <span class="poem-title">{{ p.title }}</span>
+          <span class="poem-meta">{{ p.dynasty }}{% if p.author %}·{{ p.author }}{% endif %}</span>
+        </button>
+        {% endfor %}
+      {% else %}
+        <span class="cell-empty">·</span>
+      {% endif %}
+    </div>
+    {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
