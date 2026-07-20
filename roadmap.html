@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知识点导图 · 小学自学系统</title>
+  <link rel="stylesheet" href="src/static/css/style.css">
+</head>
+<body data-page="roadmap">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="container">
+      <div class="page-head">
+        <h1>小学知识点导图</h1>
+        <div class="subject-tabs" id="subject-tabs"></div>
+      </div>
+      <p class="muted">点击任意知识点，内容会在上方「黑板」上讲解；再点别的，黑板换一节课。📚</p>
+
+      <section id="board" class="board-wrap" aria-live="polite">
+        <div class="blackboard">
+          <div id="board-empty" class="board-empty">
+            👆 点击下面的知识点，开始今天的课～
+          </div>
+          <div id="board-content" class="board-content" hidden>
+            <div class="board-lesson-tag">📚 上课啦</div>
+            <h2 id="board-title" class="board-title"></h2>
+            <div id="board-sections"></div>
+            <a id="board-errlink" class="board-errlink" href="#">查看这个知识点的错题 →</a>
+          </div>
+        </div>
+      </section>
+
+      <div id="roadmap-root" class="roadmap" data-subject="math"></div>
+    </main>
+  </div>
+  <script src="assets/site.js"></script>
+</body>
+</html>

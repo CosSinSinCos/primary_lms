@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章背诵 · 小学自学系统</title>
+  <link rel="stylesheet" href="src/static/css/style.css">
+</head>
+<body data-page="recite">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="container">
+      <div class="page-head">
+        <h1>语文 · 必背诗词与文章</h1>
+        <p class="muted">点一篇目，黑板就背这篇并讲作者与来历（纵轴=体裁，横轴=年级）。</p>
+      </div>
+
+      <section id="board" class="board-wrap" aria-live="polite">
+        <div class="blackboard">
+          <div id="board-empty" class="board-empty">
+            👆 点下面的篇目，开始今天的一课～
+          </div>
+          <div id="board-content" class="board-content" hidden>
+            <div class="board-lesson-tag" id="board-tag">📜 背诵</div>
+            <h2 id="board-title" class="board-title"></h2>
+            <div id="board-sections"></div>
+          </div>
+        </div>
+      </section>
+
+      <div id="sec-bei">
+        <h2 class="sec-heading">📜 必背诗词与文章（纵轴=体裁，横轴=年级）</h2>
+        <div class="cn-grid-hint">纵轴是<b>体裁</b>（唐诗 / 宋词 / 古文 / 现代文），横轴是<b>年级</b>；每个格子是该“体裁 + 年级”下要背诵的篇目。点篇目看黑板原文与简析。</div>
+        <div class="recite-grid" id="recite-grid"></div>
+      </div>
+    </main>
+  </div>
+  <script src="assets/site.js"></script>
+</body>
+</html>

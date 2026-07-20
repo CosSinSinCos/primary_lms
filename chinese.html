@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>语文生字 · 小学自学系统</title>
+  <link rel="stylesheet" href="src/static/css/style.css">
+</head>
+<body data-page="chinese">
+  <div class="layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <main class="container">
+      <div class="page-head">
+        <h1>语文 · 生字</h1>
+        <p class="muted">点一个字，黑板就讲这个字（左边是拼音·笔画动画·部首表音表义；右边是组词·成语·造句）。</p>
+      </div>
+
+      <section id="board" class="board-wrap" aria-live="polite">
+        <div class="blackboard">
+          <div id="board-empty" class="board-empty">
+            👆 点下面的字，开始今天的一课～
+          </div>
+          <div id="board-content" class="board-content" hidden>
+            <div class="board-lesson-tag" id="board-tag">📖 生字</div>
+            <h2 id="board-title" class="board-title"></h2>
+            <div id="board-sections"></div>
+          </div>
+        </div>
+      </section>
+
+      <div id="sec-sheng">
+        <h2 class="sec-heading">📖 生字（纵轴=偏旁部首，横轴=年级）</h2>
+        <div class="cn-grid-hint">纵轴是<b>偏旁部首</b>，横轴是<b>年级</b>；每个格子是这个“部首+年级”下学过的字。点字看黑板。</div>
+        <div class="radical-table" id="radical-table"></div>
+      </div>
+    </main>
+  </div>
+  <script src="assets/site.js"></script>
+</body>
+</html>
