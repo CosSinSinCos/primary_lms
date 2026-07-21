@@ -48,7 +48,7 @@ function showProfMenu(x, y, onPick) {
   hideProfMenu();
   const m = document.createElement('div');
   m.className = 'prof-menu';
-  [['good', '熟练（绿）'], ['mid', '一般（黄）'], ['poor', '生疏（红）'], ['clear', '清除标记']].forEach(function (it) {
+  [['good', '熟练（深绿）'], ['mid', '一般（深橙）'], ['poor', '生疏（深红）'], ['clear', '清除标记']].forEach(function (it) {
     const b = document.createElement('button');
     b.className = 'm-' + it[0];
     b.textContent = it[1];
@@ -72,6 +72,13 @@ function initChallenge() {
   if (!GAME_ON) return;
   document.querySelectorAll('.char-chip').forEach(function (el) { bindProf(el, 'char', el.dataset.id); });
   document.querySelectorAll('.poem-chip').forEach(function (el) { bindProf(el, 'poem', el.dataset.id); });
+}
+function revealBoard() {
+  const empty = document.getElementById('board-empty');
+  const content = document.getElementById('board-content');
+  if (empty) empty.hidden = true;
+  if (content) content.hidden = false;
+  hideBoardTag();
 }
 function hideBoardTag() {
   const tag = document.getElementById('board-tag');
@@ -245,7 +252,7 @@ function showChar(btn) {
   const c = findChar(btn.dataset.id);
   if (!c) return;
 
-  hideBoardTag();
+  revealBoard();
   const bt = document.getElementById('board-title');
   bt.textContent = c.pinyin ? c.pinyin : (c.radical ? '部首「' + c.radical + '」' : '');
   const wrap = document.getElementById('board-sections');
@@ -301,7 +308,7 @@ function showPoem(btn) {
   const p = findPoem(btn.dataset.id);
   if (!p) return;
 
-  hideBoardTag();
+  revealBoard();
   document.getElementById('board-title').textContent = '《' + p.title + '》';
   const wrap = document.getElementById('board-sections');
   wrap.innerHTML = '';

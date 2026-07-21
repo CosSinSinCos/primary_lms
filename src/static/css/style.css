@@ -636,9 +636,10 @@ body.game-mode #board { display: none; }
 }
 .game-banner b { color: #c0392b; }
 /* 熟练 / 一般 / 生疏 三档配色（绿 / 黄 / 红） */
-.char-chip.prof-good, .poem-chip.prof-good { background: #e7f7ec; color: #157a3e; border-color: #8fd9a6; }
-.char-chip.prof-mid,  .poem-chip.prof-mid  { background: #fff7df; color: #9a6b00; border-color: #f0d27a; }
-.char-chip.prof-poor, .poem-chip.prof-poor { background: #fdeaea; color: #c0392b; border-color: #f0a8a0; }
+/* 闯关模式：熟练/一般/生疏 → 整块深绿/深橙/深红底 + 白字 */
+body.game-mode .char-chip.prof-good, body.game-mode .poem-chip.prof-good { background: #1e7d3a; color: #fff; border-color: #155e2c; }
+body.game-mode .char-chip.prof-mid,  body.game-mode .poem-chip.prof-mid  { background: #d9721c; color: #fff; border-color: #b25c12; }
+body.game-mode .char-chip.prof-poor, body.game-mode .poem-chip.prof-poor { background: #c0202a; color: #fff; border-color: #971019; }
 /* 右键菜单 */
 .prof-menu {
   position: fixed; z-index: 999; min-width: 150px;
