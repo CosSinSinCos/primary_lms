@@ -24,17 +24,20 @@ body {
   font-size: 12px; color: #95a5a6; letter-spacing: 1px;
   margin: 16px 8px 6px;
 }
+.side-group-chinese, .side-group-math {
+  display: block; position: relative;
+  font-size: 14px; font-weight: 700; letter-spacing: 2px;
+  padding: 7px 14px; margin: 16px 0 8px;
+  border-radius: 8px 8px 8px 6px;          /* 书签折角 */
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+}
 .side-group-chinese {
-  display: inline-block;
-  background: #ffeaea; color: #c0392b;
-  padding: 4px 10px; border-radius: 6px;
-  font-weight: 600;
+  background: linear-gradient(135deg, #ffe3e3, #ffd2d2);
+  color: #c0392b; border-left: 4px solid #e74c3c;   /* 语文·浅红 */
 }
 .side-group-math {
-  display: inline-block;
-  background: #e6f2ff; color: #2173c4;
-  padding: 4px 10px; border-radius: 6px;
-  font-weight: 600;
+  background: linear-gradient(135deg, #e3f0ff, #d2e4ff);
+  color: #2173c4; border-left: 4px solid #3498db;   /* 数学·浅蓝 */
 }
 .main-menu { display: flex; flex-direction: column; gap: 4px; }
 .menu-item {
@@ -347,21 +350,20 @@ h1 { margin-top: 0; }
     radial-gradient(circle at 18% 22%, rgba(255,255,255,.06) 0 22%, transparent 23%),
     radial-gradient(circle at 78% 70%, rgba(255,255,255,.05) 0 18%, transparent 19%),
     #33614c;
-  box-shadow: 0 10px 24px rgba(0,0,0,.18), inset 0 0 30px rgba(0,0,0,.28);
+  /* 底部粉笔槽用 box-shadow 模拟，避免被 overflow 裁切 */
+  box-shadow: 0 12px 0 #7c5530, 0 22px 24px rgba(0,0,0,.18), inset 0 0 30px rgba(0,0,0,.28);
   color: #eef3ec;
   font-family: "Comic Sans MS", "Chalkboard SE", "STKaiti", "KaiTi", "楷体", cursive;
-  padding: 48px 22px 18px;   /* 顶部空一行 */
-  height: auto; max-height: 50vh; overflow: auto;  /* 锁定顶部，底部最高为显示器一半（横竖屏/手机均不超一半） */
+  padding: 8px 22px 16px;                                  /* 顶部不留大空行，提示改为吸顶固定 */
+  max-height: 50vh; overflow-y: auto; overflow-x: hidden;  /* 锁定顶部；去横向滚动条(多余横边框)；横竖屏/手机均不超一半 */
 }
 .board-hint {
-  position: absolute; top: 10px; left: 0; right: 0;
-  text-align: center; font-size: 13px; color: rgba(255,255,255,.55);
+  position: sticky; top: 0; z-index: 5;                     /* 滚动时吸顶，黑板上沿与提示始终不动 */
+  margin: 0 -22px; padding: 8px 22px;
+  background: #2f5848;                                       /* 不透明，内容滚动时其下被遮住 */
+  text-align: center; font-size: 13px; color: rgba(255,255,255,.7);
+  border-bottom: 1px solid rgba(255,255,255,.12);
   pointer-events: none;
-}
-.blackboard::after {
-  /* 粉笔槽 */
-  content: ""; position: absolute; left: 0; right: 0; bottom: -12px; height: 12px;
-  background: #7c5530; border-radius: 0 0 6px 6px;
 }
 .board-empty {
   text-align: center; font-size: 18px; padding: 26px 10px; opacity: .85;
@@ -403,7 +405,7 @@ h1 { margin-top: 0; }
 .char-board { display: flex; gap: 28px; }
 .cb-main { flex: 1 1 0; min-width: 0; }
 .cb-side {
-  flex: 0 0 220px; display: flex; flex-direction: column; gap: 14px;
+  flex: 0 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 14px;
   border-left: 1px dashed rgba(255,255,255,.25); padding-left: 22px;
 }
 .cb-tianzi-wrap {

@@ -180,7 +180,8 @@ function showChar(btn) {
   if (!c) return;
 
   setBoardTag('📖 生字');
-  document.getElementById('board-title').textContent = c.char;
+  const bt = document.getElementById('board-title');
+  bt.textContent = c.pinyin ? c.pinyin : (c.radical ? '部首「' + c.radical + '」' : '');
   const wrap = document.getElementById('board-sections');
   wrap.innerHTML = '';
 
