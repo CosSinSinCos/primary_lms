@@ -24,6 +24,18 @@ body {
   font-size: 12px; color: #95a5a6; letter-spacing: 1px;
   margin: 16px 8px 6px;
 }
+.side-group-chinese {
+  display: inline-block;
+  background: #ffeaea; color: #c0392b;
+  padding: 4px 10px; border-radius: 6px;
+  font-weight: 600;
+}
+.side-group-math {
+  display: inline-block;
+  background: #e6f2ff; color: #2173c4;
+  padding: 4px 10px; border-radius: 6px;
+  font-weight: 600;
+}
 .main-menu { display: flex; flex-direction: column; gap: 4px; }
 .menu-item {
   display: block; text-decoration: none; color: #34495e;
@@ -187,6 +199,50 @@ h1 { margin-top: 0; }
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 16px; margin: 24px 0;
 }
+
+/* ---------- 主页：哥哥 / 妹妹 书本入口 ---------- */
+.home-books {
+  display: flex; gap: 40px; justify-content: center; align-items: stretch;
+  flex-wrap: wrap; margin: 32px 0;
+}
+.book-card {
+  width: 280px; min-height: 360px;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  border-radius: 8px 18px 18px 8px;
+  box-shadow: 0 8px 26px rgba(0,0,0,.12);
+  border-left: 16px solid;
+  position: relative;
+  display: flex; flex-direction: column;
+  padding: 28px 22px 22px;
+  text-decoration: none; color: inherit;
+  transition: transform .15s, box-shadow .15s;
+}
+.book-card:hover { transform: translateY(-5px); box-shadow: 0 12px 34px rgba(0,0,0,.16); }
+.book-card.brother { border-left-color: #e74c3c; }
+.book-card.sister  { border-left-color: #3498db; }
+.book-spine {
+  position: absolute; left: -16px; top: 0; bottom: 0; width: 16px;
+  border-radius: 8px 0 0 8px;
+}
+.book-title {
+  font-size: 32px; font-weight: 700; text-align: center;
+  margin-bottom: 28px; color: #2c3e50;
+}
+.book-links { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.book-link {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px; background: #f5f7fa;
+  border-radius: 10px; font-size: 16px; font-weight: 600;
+  color: #34495e; text-decoration: none;
+  transition: background .12s, transform .1s;
+}
+.book-link:hover { background: #eaf0f5; transform: translateX(4px); }
+.book-link-icon { font-size: 22px; }
+.book-link-arrow { margin-left: auto; color: #bdc3c7; font-size: 13px; }
+@media (max-width: 680px) {
+  .home-books { gap: 24px; }
+  .book-card { width: 100%; max-width: 340px; }
+}
 .module-card {
   background: #fff; border-radius: 10px; padding: 18px;
   text-decoration: none; color: inherit;
@@ -280,8 +336,16 @@ h1 { margin-top: 0; }
   box-shadow: 0 10px 24px rgba(0,0,0,.18), inset 0 0 30px rgba(0,0,0,.28);
   color: #eef3ec;
   font-family: "Comic Sans MS", "Chalkboard SE", "STKaiti", "KaiTi", "楷体", cursive;
-  padding: 18px 22px;
-  max-height: 64vh; overflow: auto;
+  padding: 38px 22px 18px;
+  height: 460px; max-height: 460px; overflow: auto;
+}
+@media (max-width: 760px) {
+  .blackboard { height: auto; max-height: 70vh; }
+}
+.board-hint {
+  position: absolute; top: 10px; left: 0; right: 0;
+  text-align: center; font-size: 13px; color: rgba(255,255,255,.55);
+  pointer-events: none;
 }
 .blackboard::after {
   /* 粉笔槽 */
@@ -322,6 +386,32 @@ h1 { margin-top: 0; }
 .bd-col-right { }
 @media (max-width: 760px) {
   .bd-split { flex-direction: column; gap: 0; }
+}
+
+/* ---------- 语文生字黑板新排版 ---------- */
+.char-board { display: flex; gap: 28px; }
+.cb-main { flex: 1 1 0; min-width: 0; }
+.cb-side {
+  flex: 0 0 220px; display: flex; flex-direction: column; gap: 14px;
+  border-left: 1px dashed rgba(255,255,255,.25); padding-left: 22px;
+}
+.cb-tianzi-wrap {
+  display: flex; align-items: center; gap: 18px; margin-bottom: 14px;
+}
+.cb-tianzi .tianzi { width: 130px; height: 130px; }
+.cb-tianzi .tianzi text { fill: #e74c3c; }
+.cb-pinyin { font-size: 26px; color: #ffe9a8; font-style: italic; letter-spacing: 1px; }
+.cb-etymology { font-size: 15px; line-height: 1.8; }
+.cb-etymology b { color: #ffe9a8; }
+.cb-side-line {
+  font-size: 16px; line-height: 1.6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.cb-side-line.cb-multiline { white-space: pre-wrap; }
+.cb-side-label { color: #ffe9a8; font-weight: 600; margin-right: 6px; }
+@media (max-width: 760px) {
+  .char-board { flex-direction: column; }
+  .cb-side { flex: auto; border-left: none; border-top: 1px dashed rgba(255,255,255,.25); padding-left: 0; padding-top: 16px; }
+  .cb-side-line { white-space: pre-wrap; }
 }
 .bd-fig-box {
   background: #fffdf6;

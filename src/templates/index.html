@@ -7,96 +7,27 @@
     <h1>小学自学系统</h1>
     <p class="muted">本地学习管理 · 不联网 · 不上云 · 家长自用</p>
   </div>
-  <div class="hero-actions">
-    <a class="btn" href="{{ url_for('errors_new') }}">+ 新增错题</a>
-    <a class="btn btn-ok" href="{{ url_for('review_list') }}">开始今日复习</a>
-  </div>
 </section>
 
-<div class="cards">
-  <a class="card" href="{{ url_for('errors_list') }}">
-    <div class="card-num">{{ total }}</div>
-    <div class="card-label">错题总数</div>
+<div class="home-books">
+  <a class="book-card brother" href="{{ url_for('brother') }}">
+    <div class="book-title">哥哥</div>
+    <div class="book-links">
+      <div class="book-link"><span class="book-link-icon">📕</span>错题闯关<span class="book-link-arrow">→</span></div>
+      <div class="book-link"><span class="book-link-icon">📖</span>生字闯关<span class="book-link-arrow">→</span></div>
+      <div class="book-link"><span class="book-link-icon">📜</span>背诵闯关<span class="book-link-arrow">→</span></div>
+      <div class="book-link"><span class="book-link-icon">📊</span>维度打分<span class="book-link-arrow">→</span></div>
+    </div>
   </a>
-  <a class="card card-info" href="{{ url_for('review_list') }}">
-    <div class="card-num">{{ review_count }}</div>
-    <div class="card-label">今日待复习</div>
-  </a>
-  <a class="card card-warn" href="{{ url_for('errors_list') }}">
-    <div class="card-num">{{ stubborn_count }}</div>
-    <div class="card-label">顽固题</div>
-  </a>
-  <a class="card card-ok" href="{{ url_for('errors_list') }}">
-    <div class="card-num">{{ mastered_count }}</div>
-    <div class="card-label">已掌握 ★5</div>
+  <a class="book-card sister" href="{{ url_for('sister') }}">
+    <div class="book-title">妹妹</div>
+    <div class="book-links">
+      <div class="book-link"><span class="book-link-icon">📕</span>错题闯关<span class="book-link-arrow">→</span></div>
+      <div class="book-link"><span class="book-link-icon">📖</span>生字闯关<span class="book-link-arrow">→</span></div>
+      <div class="book-link"><span class="book-link-icon">📜</span>背诵闯关<span class="book-link-arrow">→</span></div>
+      <div class="book-link"><span class="book-link-icon">📊</span>维度打分<span class="book-link-arrow">→</span></div>
+    </div>
   </a>
 </div>
-
-{% if stubborn_count %}
-<div class="tip">
-  ⚠️ 有 {{ stubborn_count }} 道顽固题（连续错 2 次），建议回课本重学。
-</div>
-{% endif %}
-
-<section class="module-grid">
-  <a class="module-card" href="{{ url_for('errors_list') }}">
-    <div class="m-icon">📕</div>
-    <div class="m-title">错题集</div>
-    <div class="m-desc">增删改查 · 遗忘曲线调度</div>
-  </a>
-  <a class="module-card" href="{{ url_for('review_list') }}">
-    <div class="m-icon">🔁</div>
-    <div class="m-title">今日复习</div>
-    <div class="m-desc">自动汇总待复习题目</div>
-  </a>
-  <a class="module-card" href="{{ url_for('roadmap') }}">
-    <div class="m-icon">🗺️</div>
-    <div class="m-title">知识点导图</div>
-    <div class="m-desc">1–6 年级数学 / 语文知识线</div>
-  </a>
-  <div class="module-card disabled" title="规划中">
-    <div class="m-icon">✍️</div>
-    <div class="m-title">生字词听写 <span class="soon">规划中</span></div>
-    <div class="m-desc">每日听写 5 新 + 5 复习</div>
-  </div>
-  <div class="module-card disabled" title="规划中">
-    <div class="m-icon">📜</div>
-    <div class="m-title">背诵三态 <span class="soon">规划中</span></div>
-    <div class="m-desc">未背 / 会背 / 会默</div>
-  </div>
-  <div class="module-card disabled" title="规划中">
-    <div class="m-icon">📊</div>
-    <div class="m-title">维度评估 <span class="soon">规划中</span></div>
-    <div class="m-desc">月考驱动 · 家长后台</div>
-  </div>
-</section>
-
-{% if preview %}
-<section class="preview">
-  <div class="page-head">
-    <h2>今日复习预览</h2>
-    <a class="btn btn-ghost btn-sm" href="{{ url_for('review_list') }}">查看全部</a>
-  </div>
-  {% for e in preview %}
-  <div class="review-item {% if e.get('stubborn') %}stubborn{% endif %}">
-    <div class="ri-head">
-      <span class="ri-title">{{ e.knowledge_node or e.unit or '未命名' }}</span>
-      <span class="tag">{{ child_name(e.child_id) }}</span>
-      <span class="tag">{{ '数学' if e.subject == 'math' else '语文' }}</span>
-      {% if e.get('stubborn') %}<span class="tag tag-red">顽固</span>{% endif %}
-    </div>
-    <div class="ri-meta">
-      <span>知识线：{{ e.knowledge_line }}</span>
-      <span>错误类型：{{ e.error_type }}</span>
-      <span>熟练度：{% for i in range(e.proficiency|default(0)) %}★{% endfor %}{{ e.proficiency|default(0) }}/5</span>
-    </div>
-  </div>
-  {% endfor %}
-</section>
-{% else %}
-<section class="preview">
-  <div class="empty">今日暂无待复习题目，去<a href="{{ url_for('errors_new') }}">新增一道错题</a>吧。</div>
-</section>
-{% endif %}
 
 {% endblock %}

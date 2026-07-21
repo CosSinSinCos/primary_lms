@@ -150,16 +150,17 @@ try {
   if (el) RECITE_DATA = JSON.parse(el.textContent);
 } catch (e) { RECITE_DATA = null; }
 
-// 田字格 SVG：红格、虚线十字、黑字（楷体）。text 可为字或笔画名。
+// 田字格 SVG：红格、虚线十字、可自定义文字颜色（楷体）。text 可为字或笔画名。
 function tianziSVG(text, opts) {
   opts = opts || {};
   const size = opts.size || 150;
   const fs = opts.fs || 84;
+  const fill = opts.fill || '#222';
   return '<svg class="tianzi" viewBox="0 0 100 100" width="' + size + '" height="' + size + '" role="img" aria-label="' + text + '">'
     + '<rect x="3" y="3" width="94" height="94" fill="#fffdf6" stroke="#e23b3b" stroke-width="4" rx="3"/>'
     + '<line x1="50" y1="5" x2="50" y2="95" stroke="#e89494" stroke-width="1.4" stroke-dasharray="4 4"/>'
     + '<line x1="5" y1="50" x2="95" y2="50" stroke="#e89494" stroke-width="1.4" stroke-dasharray="4 4"/>'
-    + '<text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="' + fs + '" fill="#222" '
+    + '<text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="' + fs + '" fill="' + fill + '" '
     + 'font-family="\'KaiTi\',\'STKaiti\',\'楷体\',serif">' + text + '</text></svg>';
 }
 
@@ -179,66 +180,56 @@ function showChar(btn) {
   if (!c) return;
 
   setBoardTag('📖 生字');
-  document.getElementById('board-title').textContent = c.char + '　' + c.pinyin;
+  document.getElementById('board-title').textContent = c.char;
   const wrap = document.getElementById('board-sections');
   wrap.innerHTML = '';
 
-  // 左列：拼音 / 笔画动态图 / 偏旁部首（表音表义 + 《词源》）
-  const left = makeDiv('bd-col bd-col-left', []);
+  // 左侧：田字格（偏旁红色）+ 拼音 + 说文解字/词源
+  const main = makeDiv('cb-main', []);
+  const tzWrap = makeDiv('cb-tianzi-wrap', []);
+  const tz = document.createElement('div');
+  tz.className = 'cb-tianzi tianzi-anim';
+  tz.innerHTML = tianziSVG(c.char, { size: 130, fs: 80, fill: '#e74c3c' });
+  const py = document.createElement('div');
+  py.className = 'cb-pinyin';
+  py.textContent = c.pinyin || '';
+  tzWrap.appendChild(tz);
+  tzWrap.appendChild(py);
+  main.appendChild(tzWrap);
 
-  // 拼音
-  left.appendChild(makeDiv('bd-section', [
-    secTitle('🔤 拼音'),
-    secBodyHTML('<span class="bd-pinyin">' + c.pinyin + '</span> <span class="bd-sub">（' + c.type + ' · 共 ' + c.strokes + ' 画）</span>')
-  ]));
-
-  // 笔画动态图：田字格大字 + 逐笔书写动画（不显示横撇竖文字）
-  const tg = makeDiv('bd-section sec-tianzi', []);
-  tg.appendChild(secTitle('✍️ 笔画（共 ' + c.strokes + ' 笔）'));
-  const tgBox = document.createElement('div');
-  tgBox.className = 'tianzi-box tianzi-anim';
-  tgBox.innerHTML = tianziSVG(c.char, { size: 150, fs: 90 });
-  // 逐笔书写动画：按笔数生成依次点亮的笔序小点
-  const steps = document.createElement('div');
-  steps.className = 'stroke-dots';
-  (c.stroke_order || []).forEach((s, i) => {
-    const dot = document.createElement('span');
-    dot.className = 'stroke-dot';
-    dot.style.animationDelay = (i * 0.5) + 's';
-    dot.textContent = (i + 1);
-    steps.appendChild(dot);
-  });
-  tgBox.appendChild(steps);
-  tg.appendChild(tgBox);
-  left.appendChild(tg);
-
-  // 偏旁部首：表音 / 表义 + 《词源》解释
-  let bu = '<b>' + c.radical + '</b> —— ' + (c.radical_role || '');
-  if (c.radical_note) bu += '<br>' + c.radical_note;
-  if (c.phonetic) bu += '<br><span class="bd-sub">表音：' + c.phonetic + '</span>';
-  if (c.etymology) bu += '<br><span class="bd-sub">《词源》：' + c.etymology + '</span>';
-  left.appendChild(makeDiv('bd-section', [secTitle('🔎 偏旁部首'), secBodyHTML(bu)]));
-
-  // 右列：组词 / 成语 / 造句（按用户要求的换行排版）
-  const right = makeDiv('bd-col bd-col-right', []);
-
-  // 组词：XXX；
-  let words = (c.words || []).map(w => w.word).join('；');
-  if (words) words += '；';
-  right.appendChild(makeDiv('bd-section', [secTitle('🧩 组词'), secBodyHTML(words || '—')]));
-
-  // 成语：XXX；
-  let idioms = '';
-  if (c.idioms && c.idioms.length) {
-    idioms = c.idioms.join('；') + '；';
+  let ety = '';
+  if (c.radical) {
+    ety += '<b>偏旁「' + escapeHTML(c.radical) + '」：</b>' + escapeHTML(c.radical_role || '') + '。';
+    if (c.radical_note) ety += escapeHTML(c.radical_note) + ' ';
   }
-  right.appendChild(makeDiv('bd-section', [secTitle('🌟 成语'), secBodyHTML(idioms || '—')]));
+  if (c.phonetic) ety += '<b>表音：</b>' + escapeHTML(c.phonetic) + ' ';
+  if (c.etymology) ety += '<b>《词源》：</b>' + escapeHTML(c.etymology) + ' ';
+  if (c.meaning) ety += '<b>本义：</b>' + escapeHTML(c.meaning) + ' ';
+  if (c.origin) ety += '<b>出处：</b>' + escapeHTML(c.origin) + ' ';
+  if (c.allusion) ety += '<b>典故：</b>' + escapeHTML(c.allusion) + ' ';
+  if (!ety) ety = '—';
+  const et = makeDiv('cb-etymology', []);
+  et.innerHTML = ety;
+  main.appendChild(et);
 
-  // 造句：XXXXXX
-  right.appendChild(makeDiv('bd-section', [secTitle('✏️ 造句'), secBodyHTML(c.sentence || '—')]));
+  // 右侧：组词 / 成语 / 句子（各一行不换行）
+  const side = makeDiv('cb-side', []);
+  let words = (c.words || []).map(w => w.word).join('、');
+  side.appendChild(makeSideLine('组词：', words || '—', false));
+  let idioms = '';
+  if (c.idioms && c.idioms.length) idioms = c.idioms.join('、');
+  side.appendChild(makeSideLine('成语：', idioms || '—', false));
+  side.appendChild(makeSideLine('句子：', c.sentence || '—', true));
 
-  wrap.appendChild(makeDiv('bd-split', [left, right]));
+  wrap.appendChild(makeDiv('char-board', [main, side]));
   scrollBoard();
+}
+
+function makeSideLine(label, text, multiline) {
+  const d = document.createElement('div');
+  d.className = 'cb-side-line' + (multiline ? ' cb-multiline' : '');
+  d.innerHTML = '<span class="cb-side-label">' + label + '</span>' + escapeHTML(text);
+  return d;
 }
 
 function showPoem(btn) {

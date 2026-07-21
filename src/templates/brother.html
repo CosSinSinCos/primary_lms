@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}哥哥 · 小学自学系统{% endblock %}
+{% block content %}
+
+<section class="hero">
+  <div>
+    <h1>哥哥的学习本</h1>
+    <p class="muted">错题闯关 · 生字闯关 · 背诵闯关 · 维度打分</p>
+  </div>
+</section>
+
+<section class="module-grid">
+  <a class="module-card" href="{{ url_for('errors_list', subject='math') }}">
+    <div class="m-icon">📕</div>
+    <div class="m-title">错题闯关</div>
+    <div class="m-desc">错题集 · 增删改查 · 遗忘曲线调度</div>
+  </a>
+  <a class="module-card" href="{{ url_for('chinese') }}">
+    <div class="m-icon">📖</div>
+    <div class="m-title">生字闯关</div>
+    <div class="m-desc">语文生字 · 偏旁部首 · 组词造句</div>
+  </a>
+  <a class="module-card" href="{{ url_for('recite') }}">
+    <div class="m-icon">📜</div>
+    <div class="m-title">背诵闯关</div>
+    <div class="m-desc">必背诗词与文章 · 作者与来历</div>
+  </a>
+  <a class="module-card" href="{{ url_for('strategy') }}">
+    <div class="m-icon">📊</div>
+    <div class="m-title">维度打分</div>
+    <div class="m-desc">解题思路 · 策略库 · 例题精讲</div>
+  </a>
+</section>
+
+{% endblock %}

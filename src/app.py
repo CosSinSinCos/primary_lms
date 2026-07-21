@@ -147,23 +147,17 @@ def inject_globals():
 
 @app.route('/')
 def index():
-    errors = load_errors()
-    today_review = [e for e in errors if e.get('next_review_date', '') <= today_str()]
-    stubborn = [e for e in errors if e.get('stubborn')]
-    mastered = [e for e in errors if e.get('proficiency', 0) >= 5]
-    preview = sorted(
-        today_review,
-        key=lambda e: (not e.get('stubborn'), e.get('next_review_date', '')),
-    )[:5]
-    return render_template(
-        'index.html',
-        total=len(errors),
-        review_count=len(today_review),
-        stubborn_count=len(stubborn),
-        mastered_count=len(mastered),
-        preview=preview,
-        children=CHILDREN,
-    )
+    return render_template('index.html')
+
+
+@app.route('/brother')
+def brother():
+    return render_template('brother.html')
+
+
+@app.route('/sister')
+def sister():
+    return render_template('sister.html')
 
 
 @app.route('/errors')

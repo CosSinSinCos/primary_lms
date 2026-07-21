@@ -10,16 +10,16 @@
   <div class="layout">
     <aside class="sidebar">
       <a class="brand" href="{{ url_for('index') }}">小学自学系统</a>
-      <div class="side-group">语文</div>
+      <div class="side-group side-group-chinese">语文</div>
       <nav class="main-menu">
-        <a class="menu-item {% if request.endpoint == 'roadmap' and request.args.get('subject') == 'chinese' %}active{% endif %}" href="{{ url_for('roadmap', subject='chinese') }}">语文知识导图</a>
+        <a class="menu-item {% if request.endpoint == 'roadmap' and request.args.get('subject') == 'chinese' %}active{% endif %}" href="{{ url_for('roadmap', subject='chinese') }}">语文导图</a>
         <a class="menu-item {% if request.endpoint == 'errors_list' and request.args.get('subject') == 'chinese' %}active{% endif %}" href="{{ url_for('errors_list', subject='chinese') }}">语文错题集</a>
         <a class="menu-item {% if request.endpoint == 'chinese' %}active{% endif %}" href="{{ url_for('chinese') }}">语文生字</a>
         <a class="menu-item {% if request.endpoint == 'recite' %}active{% endif %}" href="{{ url_for('recite') }}">文章背诵</a>
       </nav>
-      <div class="side-group">数学</div>
+      <div class="side-group side-group-math">数学</div>
       <nav class="main-menu">
-        <a class="menu-item {% if request.endpoint == 'roadmap' and request.args.get('subject') == 'math' %}active{% endif %}" href="{{ url_for('roadmap', subject='math') }}">数学知识导图</a>
+        <a class="menu-item {% if request.endpoint == 'roadmap' and request.args.get('subject') == 'math' %}active{% endif %}" href="{{ url_for('roadmap', subject='math') }}">数学导图</a>
         <a class="menu-item {% if request.endpoint == 'mathcalc' %}active{% endif %}" href="{{ url_for('mathcalc') }}">数学计算</a>
         <a class="menu-item {% if request.endpoint == 'errors_list' and request.args.get('subject') == 'math' %}active{% endif %}" href="{{ url_for('errors_list', subject='math') }}">数学错题集</a>
         <a class="menu-item {% if request.endpoint == 'strategy' %}active{% endif %}" href="{{ url_for('strategy') }}">解题思路</a>

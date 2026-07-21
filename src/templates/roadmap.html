@@ -6,7 +6,6 @@
 <script id="roadmap-data" type="application/json">{{ roadmap_data | tojson }}</script>
 
 <div class="page-head">
-  <h1>小学知识点导图</h1>
   <div class="subject-tabs">
     {% for code, info in subjects.items() %}
     <a class="subject-tab {% if code == subject %}active{% endif %}"
@@ -14,11 +13,11 @@
     {% endfor %}
   </div>
 </div>
-<p class="muted">点击任意知识点，内容会在上方「黑板」上讲解；再点别的，黑板换一节课。📚</p>
 
 {# 顶部固定黑板 #}
 <section id="board" class="board-wrap" aria-live="polite">
   <div class="blackboard">
+    <div class="board-hint">点击黑板下方知识点，在黑板上展现。</div>
     <div id="board-empty" class="board-empty">
       👆 点击下面的知识点，开始今天的课～
     </div>

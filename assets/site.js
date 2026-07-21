@@ -12,19 +12,20 @@ function mountSidebar() {
   if (!el) return;
   const nav = [
     { group: '语文', items: [
-      { href: 'roadmap.html?subject=chinese', label: '语文知识导图', page: 'roadmap-chinese' },
+      { href: 'roadmap.html?subject=chinese', label: '语文导图', page: 'roadmap-chinese' },
       { href: 'chinese.html', label: '语文生字', page: 'chinese' },
       { href: 'recite.html', label: '文章背诵', page: 'recite' },
     ]},
     { group: '数学', items: [
-      { href: 'roadmap.html?subject=math', label: '数学知识导图', page: 'roadmap-math' },
+      { href: 'roadmap.html?subject=math', label: '数学导图', page: 'roadmap-math' },
       { href: 'mathcalc.html', label: '数学计算', page: 'mathcalc' },
       { href: 'strategy.html', label: '解题思路', page: 'strategy' },
     ]},
   ];
   let html = '<a class="brand" href="index.html">小学自学系统</a>';
   nav.forEach(g => {
-    html += '<div class="side-group">' + g.group + '</div><nav class="main-menu">';
+    const groupClass = g.group === '语文' ? 'side-group-chinese' : (g.group === '数学' ? 'side-group-math' : '');
+    html += '<div class="side-group ' + groupClass + '">' + g.group + '</div><nav class="main-menu">';
     g.items.forEach(it => {
       html += '<a class="menu-item" data-page="' + it.page + '" href="' + it.href + '">' + it.label + '</a>';
     });
@@ -139,11 +140,12 @@ function tianziSVG(text, opts) {
   opts = opts || {};
   const size = opts.size || 150;
   const fs = opts.fs || 84;
+  const fill = opts.fill || '#222';
   return '<svg class="tianzi" viewBox="0 0 100 100" width="' + size + '" height="' + size + '" role="img" aria-label="' + text + '">'
     + '<rect x="3" y="3" width="94" height="94" fill="#fffdf6" stroke="#e23b3b" stroke-width="4" rx="3"/>'
     + '<line x1="50" y1="5" x2="50" y2="95" stroke="#e89494" stroke-width="1.4" stroke-dasharray="4 4"/>'
     + '<line x1="5" y1="50" x2="95" y2="50" stroke="#e89494" stroke-width="1.4" stroke-dasharray="4 4"/>'
-    + '<text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="' + fs + '" fill="#222" '
+    + '<text x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="' + fs + '" fill="' + fill + '" '
     + 'font-family="\'KaiTi\',\'STKaiti\',\'楷体\',serif">' + text + '</text></svg>';
 }
 
@@ -162,43 +164,56 @@ function showChar(btn) {
   const c = findChar(btn.dataset.id);
   if (!c) return;
   setBoardTag('📖 生字');
-  document.getElementById('board-title').textContent = c.char + '　' + c.pinyin;
+  document.getElementById('board-title').textContent = c.char;
   const wrap = document.getElementById('board-sections');
   wrap.innerHTML = '';
-  const left = makeDiv('bd-col bd-col-left', []);
-  left.appendChild(makeDiv('bd-section', [secTitle('🔤 拼音'), secBodyHTML('<span class="bd-pinyin">' + escapeHTML(c.pinyin) + '</span> <span class="bd-sub">（' + escapeHTML(c.type) + ' · 共 ' + escapeHTML(c.strokes) + ' 画）</span>')]));
-  const tg = makeDiv('bd-section sec-tianzi', []);
-  tg.appendChild(secTitle('✍️ 笔画（共 ' + escapeHTML(c.strokes) + ' 笔）'));
-  const tgBox = document.createElement('div');
-  tgBox.className = 'tianzi-box tianzi-anim';
-  tgBox.innerHTML = tianziSVG(c.char, { size: 150, fs: 90 });
-  const steps = document.createElement('div');
-  steps.className = 'stroke-dots';
-  (c.stroke_order || []).forEach((s, i) => {
-    const dot = document.createElement('span');
-    dot.className = 'stroke-dot';
-    dot.style.animationDelay = (i * 0.5) + 's';
-    dot.textContent = (i + 1);
-    steps.appendChild(dot);
-  });
-  tgBox.appendChild(steps);
-  tg.appendChild(tgBox);
-  left.appendChild(tg);
-  let bu = '<b>' + escapeHTML(c.radical) + '</b> —— ' + escapeHTML(c.radical_role || '');
-  if (c.radical_note) bu += '<br>' + escapeHTML(c.radical_note);
-  if (c.phonetic) bu += '<br><span class="bd-sub">表音：' + escapeHTML(c.phonetic) + '</span>';
-  if (c.etymology) bu += '<br><span class="bd-sub">《词源》：' + escapeHTML(c.etymology) + '</span>';
-  left.appendChild(makeDiv('bd-section', [secTitle('🔎 偏旁部首'), secBodyHTML(bu)]));
-  const right = makeDiv('bd-col bd-col-right', []);
-  let words = (c.words || []).map(w => w.word).join('；');
-  if (words) words += '；';
-  right.appendChild(makeDiv('bd-section', [secTitle('🧩 组词'), secBodyHTML(escapeHTML(words) || '—')]));
+
+  // 左侧：田字格（偏旁红色）+ 拼音 + 说文解字/词源
+  const main = makeDiv('cb-main', []);
+  const tzWrap = makeDiv('cb-tianzi-wrap', []);
+  const tz = document.createElement('div');
+  tz.className = 'cb-tianzi tianzi-anim';
+  tz.innerHTML = tianziSVG(c.char, { size: 130, fs: 80, fill: '#e74c3c' });
+  const py = document.createElement('div');
+  py.className = 'cb-pinyin';
+  py.textContent = c.pinyin || '';
+  tzWrap.appendChild(tz);
+  tzWrap.appendChild(py);
+  main.appendChild(tzWrap);
+
+  let ety = '';
+  if (c.radical) {
+    ety += '<b>偏旁「' + escapeHTML(c.radical) + '」：</b>' + escapeHTML(c.radical_role || '') + '。';
+    if (c.radical_note) ety += escapeHTML(c.radical_note) + ' ';
+  }
+  if (c.phonetic) ety += '<b>表音：</b>' + escapeHTML(c.phonetic) + ' ';
+  if (c.etymology) ety += '<b>《词源》：</b>' + escapeHTML(c.etymology) + ' ';
+  if (c.meaning) ety += '<b>本义：</b>' + escapeHTML(c.meaning) + ' ';
+  if (c.origin) ety += '<b>出处：</b>' + escapeHTML(c.origin) + ' ';
+  if (c.allusion) ety += '<b>典故：</b>' + escapeHTML(c.allusion) + ' ';
+  if (!ety) ety = '—';
+  const et = makeDiv('cb-etymology', []);
+  et.innerHTML = ety;
+  main.appendChild(et);
+
+  // 右侧：组词 / 成语 / 句子（各一行不换行）
+  const side = makeDiv('cb-side', []);
+  let words = (c.words || []).map(w => w.word).join('、');
+  side.appendChild(makeSideLine('组词：', words || '—', false));
   let idioms = '';
-  if (c.idioms && c.idioms.length) idioms = c.idioms.join('；') + '；';
-  right.appendChild(makeDiv('bd-section', [secTitle('🌟 成语'), secBodyHTML(escapeHTML(idioms) || '—')]));
-  right.appendChild(makeDiv('bd-section', [secTitle('✏️ 造句'), secBodyHTML(escapeHTML(c.sentence) || '—')]));
-  wrap.appendChild(makeDiv('bd-split', [left, right]));
+  if (c.idioms && c.idioms.length) idioms = c.idioms.join('、');
+  side.appendChild(makeSideLine('成语：', idioms || '—', false));
+  side.appendChild(makeSideLine('句子：', c.sentence || '—', true));
+
+  wrap.appendChild(makeDiv('char-board', [main, side]));
   scrollBoard();
+}
+
+function makeSideLine(label, text, multiline) {
+  const d = document.createElement('div');
+  d.className = 'cb-side-line' + (multiline ? ' cb-multiline' : '');
+  d.innerHTML = '<span class="cb-side-label">' + label + '</span>' + escapeHTML(text);
+  return d;
 }
 
 function showPoem(btn) {
