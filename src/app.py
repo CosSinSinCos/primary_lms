@@ -293,7 +293,6 @@ def roadmap():
     return render_template(
         'roadmap.html',
         subject=subject,
-        subjects=roadmap_data,
         lines=roadmap_data.get(subject, {}).get('lines', []),
         line_counts=line_counts,
         roadmap_data=roadmap_data,

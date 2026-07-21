@@ -371,17 +371,6 @@ function loadRoadmap() {
   fetch('data/roadmap.json').then(r => r.json()).then(data => {
     ROADMAP_DATA = data;
     if (!data[subject]) subject = Object.keys(data)[0] || 'math';
-    const tabs = document.getElementById('subject-tabs');
-    if (tabs) {
-      tabs.innerHTML = '';
-      Object.keys(data).forEach(code => {
-        const a = document.createElement('a');
-        a.className = 'subject-tab' + (code === subject ? ' active' : '');
-        a.href = 'roadmap.html?subject=' + code;
-        a.textContent = data[code].name;
-        tabs.appendChild(a);
-      });
-    }
     document.body.dataset.page = 'roadmap-' + subject;
     mountSidebar();
     const root = document.getElementById('roadmap-root');
