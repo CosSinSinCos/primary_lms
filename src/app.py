@@ -341,6 +341,7 @@ def recite():
         recite_grid=recite_grid,
         recite_cats=cats,
         recite_grades=grades,
+        chinese_errors=[e for e in load_errors() if e.get('subject') == 'chinese'],
     )
 
 
@@ -355,6 +356,7 @@ def strategy():
     return render_template(
         'strategy.html',
         strategies=data.get('strategies', []),
+        math_errors=[e for e in load_errors() if e.get('subject') == 'math'],
     )
 
 

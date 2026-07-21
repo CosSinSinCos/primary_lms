@@ -26,4 +26,46 @@
   </button>
   {% endfor %}
 </div>
+
+{# 解题思路下方：数学错题集 #}
+<section class="embed-errors">
+  <div class="embed-errors-head">
+    <h2 class="sec-heading">📐 数学错题集</h2>
+    <a class="btn btn-sm" href="{{ url_for('errors_list', subject='math') }}">管理全部数学错题 →</a>
+  </div>
+  <div class="cn-grid-hint">下面是数学科目里记录的错题，看完思路顺手复习一下。</div>
+  {% if math_errors %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>孩子</th><th>年级</th><th>单元</th><th>知识线</th>
+        <th>节点</th><th>错误类型</th><th>熟练度</th><th>下次复习</th><th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in math_errors %}
+      <tr {% if e.stubborn %}class="stubborn"{% endif %}>
+        <td>{{ child_name(e.child_id) }}</td>
+        <td>{{ e.grade }}</td>
+        <td>{{ e.unit or '—' }}</td>
+        <td>{{ e.knowledge_line }}</td>
+        <td>{{ e.knowledge_node or '—' }}</td>
+        <td>{{ e.error_type }}</td>
+        <td class="stars">{{ '★' * e.proficiency }}{{ '☆' * (5 - e.proficiency) }}</td>
+        <td>{{ e.next_review_date }}</td>
+        <td class="ops">
+          <a href="{{ url_for('errors_edit', eid=e.id) }}">编辑</a>
+          <form method="post" action="{{ url_for('errors_delete', eid=e.id) }}" onsubmit="return confirm('确认删除？')">
+            <button type="submit" class="link-btn">删除</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="empty">暂无数学错题，去「管理全部数学错题」新增一条吧～</div>
+  {% endif %}
+</section>
+
 {% endblock %}
