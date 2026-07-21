@@ -52,11 +52,14 @@ body {
   .sidebar {
     width: 100%; flex-basis: auto; height: auto;
     position: static; border-right: none; border-bottom: 1px solid #eef1f4;
+    padding: 10px 12px;
   }
-  .main-menu { flex-direction: row; flex-wrap: wrap; }
-  .menu-item { flex: 1 1 40%; text-align: center; }
+  .brand { margin-bottom: 4px; }
+  .side-group { margin: 8px 8px 3px; }
+  .main-menu { display: flex; flex-direction: row; flex-wrap: nowrap; gap: 4px; }
+  .menu-item { flex: 1 1 0; min-width: 0; text-align: center; padding: 7px 4px; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
-.container { flex: 1; max-width: 1100px; margin: 0 auto; padding: 24px; width: 100%; box-sizing: border-box; }
+.container { flex: 1; max-width: 1100px; margin: 0 auto; padding: 24px; width: 100%; box-sizing: border-box; align-self: flex-start; }
 h1 { margin-top: 0; }
 .muted { color: #888; font-size: 14px; }
 
