@@ -163,23 +163,19 @@ function showChar(btn) {
   btn.classList.add('selected');
   const c = findChar(btn.dataset.id);
   if (!c) return;
-  setBoardTag('📖 生字');
+  hideBoardTag();
   const bt = document.getElementById('board-title');
   bt.textContent = c.pinyin ? c.pinyin : (c.radical ? '部首「' + c.radical + '」' : '');
   const wrap = document.getElementById('board-sections');
   wrap.innerHTML = '';
 
-  // 左侧：田字格（偏旁红色）+ 拼音 + 说文解字/词源
+  // 左侧：田字格（偏旁红色）+ 说文解字/词源（去掉拼音）
   const main = makeDiv('cb-main', []);
   const tzWrap = makeDiv('cb-tianzi-wrap', []);
   const tz = document.createElement('div');
   tz.className = 'cb-tianzi tianzi-anim';
   tz.innerHTML = tianziSVG(c.char, { size: 130, fs: 80, fill: '#e74c3c' });
-  const py = document.createElement('div');
-  py.className = 'cb-pinyin';
-  py.textContent = c.pinyin || '';
   tzWrap.appendChild(tz);
-  tzWrap.appendChild(py);
   main.appendChild(tzWrap);
 
   let ety = '';
@@ -222,7 +218,7 @@ function showPoem(btn) {
   btn.classList.add('selected');
   const p = findPoem(btn.dataset.id);
   if (!p) return;
-  setBoardTag('📜 背诵');
+  hideBoardTag();
   document.getElementById('board-title').textContent = '《' + p.title + '》';
   const wrap = document.getElementById('board-sections');
   wrap.innerHTML = '';
@@ -444,7 +440,9 @@ function loadChinese() {
   fetch('data/chinese.json').then(r => r.json()).then(data => {
     CHINESE_DATA = data;
     const grades = data.grades || ['1', '2', '3', '4', '5', '6'];
-    const radicals = data.radicals || [];
+    const radicals = (data.radicals || []).slice().sort(
+      (a, b) => (RADICAL_STROKES[a.name] || 99) - (RADICAL_STROKES[b.name] || 99)
+    );
     const chars = data.chars || [];
     const grid = {};
     radicals.forEach(r => { grid[r.name] = {}; grades.forEach(g => grid[r.name][g] = []); });
@@ -478,6 +476,7 @@ function loadChinese() {
             b.onclick = () => showChar(b);
             b.textContent = c.char;
             cell.appendChild(b);
+            if (GAME_ON) bindProf(b, 'char', c.id);
           });
         } else {
           const e = document.createElement('span');
@@ -544,6 +543,7 @@ function loadRecite() {
             b.appendChild(t);
             b.appendChild(m);
             cell.appendChild(b);
+            if (GAME_ON) bindProf(b, 'poem', p.id);
           });
         } else {
           const e = document.createElement('span');
@@ -588,8 +588,69 @@ function loadStrategy() {
   });
 }
 
+// ---------- 偏旁笔画数（生字纵轴按笔画由少到多排序） ----------
+const RADICAL_STROKES = {"人":2,"口":3,"日":4,"月":4,"木":4,"氵":3,"火":4,"土":3,"女":3,"心":4,"扌":3,"目":5,"讠":2,"纟":3,"艹":3,"宀":3,"辶":3,"⻊":7,"钅":5,"虫":6,"鸟":5,"犭":3,"竹":6,"禾":5,"米":6,"车":4,"门":3,"阝":2,"冫":2,"雨":8,"饣":3,"王":4,"石":5,"其他":99,"力":2,"页":6,"贝":4,"见":4,"立":5,"刀":2,"弓":3,"舟":6,"巾":3,"广":3,"耳":6,"又":2,"八":2,"儿":2,"寸":3,"斤":4,"方":4,"文":4,"户":4,"尸":3,"厂":2,"疒":5,"衤":5,"谷":7,"豆":7,"辛":7,"里":7,"舌":6,"牙":4,"鱼":8,"音":9,"黑":12,"骨":9,"鹿":11,"麦":7,"鼠":13,"鼻":14,"矢":5,"食":9};
+
+// ---------- 闯关模式：右键标记 熟练 / 一般 / 生疏 ----------
+let GAME_ON = false;
+let GAME_CHILD = 'brother';
+function initGameMode() {
+  const p = new URLSearchParams(location.search);
+  GAME_ON = p.get('game') === '1';
+  if (!GAME_ON) return;
+  GAME_CHILD = p.get('child') || 'brother';
+  document.body.classList.add('game-mode');
+  const banner = document.querySelector('.game-banner');
+  if (banner) {
+    banner.querySelector('.game-who').textContent = GAME_CHILD === 'sister' ? '妹妹' : '哥哥';
+    banner.style.display = 'flex';
+  }
+}
+function profKey(kind, id) { return 'lms_prof_' + GAME_CHILD + '_' + kind + '_' + id; }
+function getProf(kind, id) { try { return localStorage.getItem(profKey(kind, id)); } catch (e) { return null; } }
+function setProf(kind, id, level, el) {
+  try { if (level) localStorage.setItem(profKey(kind, id), level); else localStorage.removeItem(profKey(kind, id)); } catch (e) {}
+  applyProf(el, kind, id); hideProfMenu();
+}
+function applyProf(el, kind, id) {
+  el.classList.remove('prof-good', 'prof-mid', 'prof-poor');
+  const v = getProf(kind, id);
+  if (v) el.classList.add('prof-' + v);
+}
+let profMenuEl = null;
+function hideProfMenu() { if (profMenuEl) { profMenuEl.remove(); profMenuEl = null; } }
+function showProfMenu(x, y, onPick) {
+  hideProfMenu();
+  const m = document.createElement('div');
+  m.className = 'prof-menu';
+  [['good', '熟练（绿）'], ['mid', '一般（黄）'], ['poor', '生疏（红）'], ['clear', '清除标记']].forEach(function (it) {
+    const b = document.createElement('button');
+    b.className = 'm-' + it[0];
+    b.textContent = it[1];
+    b.onclick = function () { onPick(it[0] === 'clear' ? null : it[0]); };
+    m.appendChild(b);
+  });
+  m.style.left = Math.min(x, window.innerWidth - 170) + 'px';
+  m.style.top = Math.min(y, window.innerHeight - 180) + 'px';
+  document.body.appendChild(m);
+  profMenuEl = m;
+  setTimeout(function () { document.addEventListener('click', hideProfMenu, { once: true }); }, 0);
+}
+function bindProf(el, kind, id) {
+  applyProf(el, kind, id);
+  el.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    showProfMenu(e.clientX, e.clientY, function (lv) { setProf(kind, id, lv, el); });
+  });
+}
+function hideBoardTag() {
+  const tag = document.getElementById('board-tag');
+  if (tag) { tag.textContent = ''; tag.style.display = 'none'; }
+}
+
 // ---------- 初始化 ----------
 document.addEventListener('DOMContentLoaded', function () {
+  initGameMode();
   mountSidebar();
   const page = document.body.dataset.page || '';
   if (page === 'roadmap') loadRoadmap();

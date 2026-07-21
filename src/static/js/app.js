@@ -16,7 +16,73 @@ function updateKnowledgeLines() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', updateKnowledgeLines);
+// ---------- 闯关模式：右键标记 熟练 / 一般 / 生疏 ----------
+let GAME_ON = false;
+let GAME_CHILD = 'brother';
+function initGameMode() {
+  const p = new URLSearchParams(location.search);
+  GAME_ON = p.get('game') === '1';
+  if (!GAME_ON) return;
+  GAME_CHILD = p.get('child') || 'brother';
+  document.body.classList.add('game-mode');
+  const banner = document.querySelector('.game-banner');
+  if (banner) {
+    banner.querySelector('.game-who').textContent = GAME_CHILD === 'sister' ? '妹妹' : '哥哥';
+    banner.style.display = 'flex';
+  }
+}
+function profKey(kind, id) { return 'lms_prof_' + GAME_CHILD + '_' + kind + '_' + id; }
+function getProf(kind, id) { try { return localStorage.getItem(profKey(kind, id)); } catch (e) { return null; } }
+function setProf(kind, id, level, el) {
+  try { if (level) localStorage.setItem(profKey(kind, id), level); else localStorage.removeItem(profKey(kind, id)); } catch (e) {}
+  applyProf(el, kind, id); hideProfMenu();
+}
+function applyProf(el, kind, id) {
+  el.classList.remove('prof-good', 'prof-mid', 'prof-poor');
+  const v = getProf(kind, id);
+  if (v) el.classList.add('prof-' + v);
+}
+let profMenuEl = null;
+function hideProfMenu() { if (profMenuEl) { profMenuEl.remove(); profMenuEl = null; } }
+function showProfMenu(x, y, onPick) {
+  hideProfMenu();
+  const m = document.createElement('div');
+  m.className = 'prof-menu';
+  [['good', '熟练（绿）'], ['mid', '一般（黄）'], ['poor', '生疏（红）'], ['clear', '清除标记']].forEach(function (it) {
+    const b = document.createElement('button');
+    b.className = 'm-' + it[0];
+    b.textContent = it[1];
+    b.onclick = function () { onPick(it[0] === 'clear' ? null : it[0]); };
+    m.appendChild(b);
+  });
+  m.style.left = Math.min(x, window.innerWidth - 170) + 'px';
+  m.style.top = Math.min(y, window.innerHeight - 180) + 'px';
+  document.body.appendChild(m);
+  profMenuEl = m;
+  setTimeout(function () { document.addEventListener('click', hideProfMenu, { once: true }); }, 0);
+}
+function bindProf(el, kind, id) {
+  applyProf(el, kind, id);
+  el.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    showProfMenu(e.clientX, e.clientY, function (lv) { setProf(kind, id, lv, el); });
+  });
+}
+function initChallenge() {
+  if (!GAME_ON) return;
+  document.querySelectorAll('.char-chip').forEach(function (el) { bindProf(el, 'char', el.dataset.id); });
+  document.querySelectorAll('.poem-chip').forEach(function (el) { bindProf(el, 'poem', el.dataset.id); });
+}
+function hideBoardTag() {
+  const tag = document.getElementById('board-tag');
+  if (tag) { tag.textContent = ''; tag.style.display = 'none'; }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  updateKnowledgeLines();
+  initGameMode();
+  initChallenge();
+});
 
 // 知识点导图：点击节点 → 在顶部黑板展示，节点高亮
 let ROADMAP_DATA = null;
@@ -179,23 +245,19 @@ function showChar(btn) {
   const c = findChar(btn.dataset.id);
   if (!c) return;
 
-  setBoardTag('📖 生字');
+  hideBoardTag();
   const bt = document.getElementById('board-title');
   bt.textContent = c.pinyin ? c.pinyin : (c.radical ? '部首「' + c.radical + '」' : '');
   const wrap = document.getElementById('board-sections');
   wrap.innerHTML = '';
 
-  // 左侧：田字格（偏旁红色）+ 拼音 + 说文解字/词源
+  // 左侧：田字格（偏旁红色）+ 说文解字/词源（去掉拼音）
   const main = makeDiv('cb-main', []);
   const tzWrap = makeDiv('cb-tianzi-wrap', []);
   const tz = document.createElement('div');
   tz.className = 'cb-tianzi tianzi-anim';
   tz.innerHTML = tianziSVG(c.char, { size: 130, fs: 80, fill: '#e74c3c' });
-  const py = document.createElement('div');
-  py.className = 'cb-pinyin';
-  py.textContent = c.pinyin || '';
   tzWrap.appendChild(tz);
-  tzWrap.appendChild(py);
   main.appendChild(tzWrap);
 
   let ety = '';
@@ -239,7 +301,7 @@ function showPoem(btn) {
   const p = findPoem(btn.dataset.id);
   if (!p) return;
 
-  setBoardTag('📜 背诵');
+  hideBoardTag();
   document.getElementById('board-title').textContent = '《' + p.title + '》';
   const wrap = document.getElementById('board-sections');
   wrap.innerHTML = '';

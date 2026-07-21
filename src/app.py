@@ -300,6 +300,9 @@ def roadmap():
     )
 
 
+# 偏旁笔画数（用于生字表纵轴按笔画由少到多排序）
+RADICAL_STROKES = {"人":2,"口":3,"日":4,"月":4,"木":4,"氵":3,"火":4,"土":3,"女":3,"心":4,"扌":3,"目":5,"讠":2,"纟":3,"艹":3,"宀":3,"辶":3,"⻊":7,"钅":5,"虫":6,"鸟":5,"犭":3,"竹":6,"禾":5,"米":6,"车":4,"门":3,"阝":2,"冫":2,"雨":8,"饣":3,"王":4,"石":5,"其他":99,"力":2,"页":6,"贝":4,"见":4,"立":5,"刀":2,"弓":3,"舟":6,"巾":3,"广":3,"耳":6,"又":2,"八":2,"儿":2,"寸":3,"斤":4,"方":4,"文":4,"户":4,"尸":3,"厂":2,"疒":5,"衤":5,"谷":7,"豆":7,"辛":7,"里":7,"舌":6,"牙":4,"鱼":8,"音":9,"黑":12,"骨":9,"鹿":11,"麦":7,"鼠":13,"鼻":14,"矢":5,"食":9}
+
 @app.route('/chinese')
 def chinese():
     data = load_chinese()
@@ -313,11 +316,14 @@ def chinese():
         g = c.get('grade', '')
         if rad in grid and g in grid[rad]:
             grid[rad][g].append(c)
+    # 偏旁按笔画数由少到多排序（纵轴）
+    radicals = sorted(data.get('radicals', []),
+                      key=lambda r: RADICAL_STROKES.get(r['name'], 99))
 
     return render_template(
         'chinese.html',
         data=data,
-        radicals=data.get('radicals', []),
+        radicals=radicals,
         grades=grades,
         grid=grid,
     )
